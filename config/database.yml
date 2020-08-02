@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: market-app_production
-  username: market-app
-  password: <%= ENV['MARKET-APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
