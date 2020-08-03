@@ -1,6 +1,6 @@
-# README
 
-#fleamarket_sample_76b DB設計
+#　fleamarket_sample_76b DB設計
+
 
 ## usersテーブル
 
@@ -17,6 +17,8 @@
 - has_many :items
 
 ## identificationsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |family_name_kanji|string|null:false|
 |first_name_kanji|string|null:false|
 |family_name_kana|string|null:false|
