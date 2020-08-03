@@ -1,5 +1,5 @@
 
-#　fleamarket_sample_76b DB設計
+# fleamarket_sample_76b DB設計
 
 
 ## usersテーブル
