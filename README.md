@@ -23,7 +23,7 @@
 |first_name_kanji|string|null:false|
 |family_name_kana|string|null:false|
 |first_name_kana|string|null:false|
-|birth_day|date|null:false|
+|birthday|date|null:false|
 |user_id|integer|null:false|
 
 ### Association
