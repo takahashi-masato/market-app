@@ -37,8 +37,8 @@
 |first_name_kanji|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|postal_code|integer(7)|null: false|
-|prefecture|integer|null: false|
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address1|string|null: false|
 |address2|string| |
@@ -52,7 +52,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|payment_card_no|string|null:false, foregin_key:ture|
+|payment_card_no|string|null:false, foreign_key:ture|
 |payment_card_expire_mm|integer|null: false|
 |payment_card_expire_yy|integer|null: false|
 |payment_card_security_code|string|null: false|
@@ -96,7 +96,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |url|string||
-|item_id|references|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
