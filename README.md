@@ -52,11 +52,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|payment_card_no|string|null:false, foreign_key:ture|
+|payment_card_no|string|null:false|
 |payment_card_expire_mm|integer|null: false|
 |payment_card_expire_yy|integer|null: false|
 |payment_card_security_code|string|null: false|
-|user_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -67,14 +67,14 @@
 |------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|category_id|bigint|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 |brand_name|string||
 |item_condition|string|null:false|
 |shipping_payer|string|null:false|
 |shipping_from_area|string|null:false|
 |shipping_duration|string|null:false|
-|price|integer|null:false|
-|user_id|integer|null:false|
+|price|string|null:false|
+|user_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :user
