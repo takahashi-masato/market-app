@@ -95,7 +95,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|url|string||
+|url|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
