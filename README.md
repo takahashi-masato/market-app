@@ -24,7 +24,7 @@
 |family_name_kana|string|null:false|
 |first_name_kana|string|null:false|
 |birthday|date|null:false|
-|user_id|integer|null:false|
+|user_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :user
