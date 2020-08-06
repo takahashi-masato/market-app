@@ -1,24 +1,102 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# fleamarket_sample_76b DB設計
 
-Things you may want to cover:
 
-* Ruby version
+## usersテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null:false|
+|password|string|null:false|
+|email|string|null:false, unique:true, index:true|
 
-* Configuration
+### Association
+- has_one :identification
+- has_one :deliver_address
+- has_one :card
+- has_many :items
 
-* Database creation
+## identificationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name_kanji|string|null:false|
+|first_name_kanji|string|null:false|
+|family_name_kana|string|null:false|
+|first_name_kana|string|null:false|
+|birthday|date|null:false|
+|user_id|integer|null:false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :user
 
-* How to run the test suite
+## deliver_addressesテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|family_name_kanji|string|null: false|
+|first_name_kanji|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|address1|string|null: false|
+|address2|string| |
+|telephone|string|unique: true|
+|user_id|references|null: false, foreign_key: true|
 
-* Deployment instructions
+### Association
+- belongs_to :user
 
-* ...
+## cardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|payment_card_no|string|null:false|
+|payment_card_expire_mm|integer|null: false|
+|payment_card_expire_yy|integer|null: false|
+|payment_card_security_code|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+## itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|category_id|integer|null: false, foreign_key: true|
+|brand_name|string||
+|item_condition|string|null:false|
+|shipping_payer|string|null:false|
+|shipping_from_area|string|null:false|
+|shipping_duration|string|null:false|
+|price|string|null:false|
+|user_id|integer|null:false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :category
+- has_many :images
+
+## categoriseテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string||
+
+### Association
+- has_many :items
+
+## imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|url|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
