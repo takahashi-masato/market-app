@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :identification, :deliver_address
+  has_one :identification
+  has_one :deliver_address
 
   validates :nickname, presence: true, uniqueness: true
 
