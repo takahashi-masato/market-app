@@ -1,0 +1,2 @@
+class DeliverAddress < ApplicationRecord
+end
