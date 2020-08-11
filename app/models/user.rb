@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_one :deliver_address
 
   validates :nickname, presence: true, uniqueness: true
-
 end
