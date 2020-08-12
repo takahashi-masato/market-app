@@ -1,0 +1,25 @@
+.form
+  = form_for @item,html: { multipart: true } do |f|
+    商品名
+    =f.text_field :name
+    価格
+    =f.number_field :price
+    カテゴリID
+    =f.number_field :category_id
+    都道府県
+    =f.text_field :description
+    商品名
+    =f.text_field :brand_name
+    商品名
+    =f.text_field :item_condition
+    商品名
+    =f.text_field :shipping_payer
+    商品名
+    =f.text_field :shipping_from_area
+    商品名
+    =f.text_field :shipping_duration
+    user_id
+    =f.number_field :user_id
+    =f.fields_for :images do |i|
+      =i.file_field :url
+    =f.submit
