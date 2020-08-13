@@ -20,6 +20,10 @@
     =f.text_field :shipping_duration
     user_id
     =f.number_field :user_id
-    =f.fields_for :images do |i|
-      =i.file_field :url
+    #image-box
+      =f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :url, class: 'js-file'
+          %br/
+          %span.js-remove 削除
     =f.submit

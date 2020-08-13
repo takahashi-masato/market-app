@@ -77,3 +77,4 @@ end
   gem 'fog-aws'
   gem 'haml-rails'
   gem 'devise'
+  gem 'jquery-rails'
