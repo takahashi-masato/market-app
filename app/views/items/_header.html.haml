@@ -1,0 +1,20 @@
+.header
+  .headerMain
+    .headerMain__mainIcon
+      = link_to root_path do
+        = image_tag 'material/logo/logo.png', class: "mainIcon",  size: "140x40"
+    .headerMain__search
+      = form_with url: root_path do |f|
+        = f.text_field  placeholder: 'キーワードを探す', class: "headerMain__search--field"
+        = f.label :name do
+          = image_tag 'material/icon/icon-search 1.png' ,size: "40x40",class:"searchBtnImage" do
+            = f.submit
+  .ul.headerList
+    .headerList__left
+      .li カテゴリー
+      .li.headerList__left--brand ブランド
+    .headerList__right
+      .li
+        = link_to "ログイン" ,"#" ,class: "userLink--rogin"
+      .li
+        = link_to "新規会員登録", "#" ,class: "userLink--new"
