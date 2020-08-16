@@ -1,0 +1,41 @@
+= form_for user_session_path do |f|
+  .field
+    = f.label :family_name_kanji
+    %br/
+    = f.text_field :family_name_kanji, class: 'input-default__half'
+  .field
+    = f.label :first_name_kanji
+    %br/
+    = f.text_field :first_name_kanji, class: 'input-default__half'
+  .field
+    = f.label :family_name_kana
+    %br/
+    = f.text_field :family_name_kana, class: 'input-default__half'
+  .field
+    = f.label :first_name_kana
+    %br/
+    = f.text_field :first_name_kana, class: 'input-default__half'
+  .field
+    = f.label :postal_code
+    %br/
+    = f.text_field :postal_code
+  .field
+    = f.label :prefecture
+    %br/
+    = f.text_field :prefcture
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :address1
+    %br/
+    = f.text_field :address1
+  .field
+    = f.label :address2
+    %br/
+    = f.text_field :address2
+  .field
+    = f.label :telephone
+    %br/
+    = f.phone_field :telephone
