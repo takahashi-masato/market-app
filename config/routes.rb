@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
+  devise_for :users
   root 'items#index'
 
-  devise_for :users
-  resources :identifications
-  resources :users
+  resources :users, only: [:edit, :updata]
+  resources :identifications, only: [:new, :create, :edit, :updata]
   resources :deliver_addresses
 end
