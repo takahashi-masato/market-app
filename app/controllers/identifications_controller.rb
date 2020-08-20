@@ -1,8 +1,12 @@
 class IdentificationsController < ApplicationController
 
+  def index
+    @identity = Identifications.all
+  end
+
   def new
     @identity = Identifications.new
-    @identity.users << current_user
+    @identity.user << current_user
   end
 
   def create
