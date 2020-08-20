@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def show
+    @user = @identity.user
+  end
+
   def update
     if current_user.update(user_params)
       redirect_to root_path
