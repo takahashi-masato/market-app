@@ -3,13 +3,14 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order('created_at DESC')
   end
 
-  def new
+  def new 
     @item = Item.new
     @item.images.new
   end
 
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
     if @item.save
       redirect_to root_path
     else
