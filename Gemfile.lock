@@ -108,6 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.76.0)
@@ -324,6 +326,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  erb2haml
   fog-aws
   haml-rails
   impressionist (~> 1.6.1)
