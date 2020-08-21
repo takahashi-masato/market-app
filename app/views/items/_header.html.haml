@@ -1,0 +1,19 @@
+.header
+  .header_main
+    .header_logo
+    =image_tag 'logo.png', size: "120x40"
+    .header_serch
+    =form_tag items_path do
+      =text_field_tag :header_serch
+      =submit_tag
+  .header_nav
+    .left_menu
+      .categoly　
+      カテゴリ
+      .header_brand
+      ブランド
+    .right_menu
+      .login
+      ログイン
+      .header_user-name
+      = current_user.name

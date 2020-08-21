@@ -1,29 +1,42 @@
 .form
   = form_for @item,html: { multipart: true } do |f|
-    商品名
-    =f.text_field :name
-    価格
-    =f.number_field :price
-    カテゴリID
-    =f.number_field :category_id
-    都道府県
-    =f.text_field :description
-    商品名
-    =f.text_field :brand_name
-    商品名
-    =f.text_field :item_condition
-    商品名
-    =f.text_field :shipping_payer
-    商品名
-    =f.text_field :shipping_from_area
-    商品名
-    =f.text_field :shipping_duration
-    user_id
-    =f.number_field :user_id
-    #image-box
+    .name
+      .label 商品名
+      =f.text_field :name
+    .image
+    #image-box 
       =f.fields_for :images do |image|
+        .label 商品画像
         .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :url, class: 'js-file'
+          = image.file_field  :url, class: 'js-file'
           %br/
-          %span.js-remove 削除
-    =f.submit
+          %span.js-remove 
+    .price
+      .label 価格
+      =f.number_field :price
+    .categoly_id
+      .label カテゴリID
+      =f.number_field :category_id
+    .description
+    .label 商品説明
+    =f.text_field :description
+    .brand
+      .label ブランド名
+      =f.text_field :brand_name
+    .item_condition
+      .label 状態
+      =f.select :item_condition,[["新品", 0],["未使用に近い", 1],["使用感あり", 2],["目立つキズなどがある",3]]
+    .shipping_payer
+      .label 送料
+      =f.select :shipping_payer,[["出品者負担(送料込み）", 0],["購入者負担（代引き）", 1]]
+    .shipping_from_area
+      .label 発送元
+      =f.text_field :shipping_from_area
+    .shipping_duration
+      .label 発送までの期間
+      =f.select :shipping_duration,[["1−２日", 0],["3−４日", 1],["5-7日", 2],["一週間以上",3]]
+    .user_id
+      .label user_id
+      =f.number_field :user_id
+    .submit_btn
+    =f.submit '出品する'

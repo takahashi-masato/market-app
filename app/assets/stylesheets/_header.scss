@@ -1,0 +1,60 @@
+.header{
+  height: 90px;
+  width: 100%;
+  }
+  
+  .header_main{
+    display: flex;
+    text-align: center;
+    
+  }
+  
+  .header_nav{
+    display: flex;
+    text-align: center;
+    padding: 20px;  
+  }
+
+    .left_menu{
+      display: flex;
+      width: 50%;
+    }
+
+    .right_menu{
+      display: flex;
+      width: 50%;
+    }
+  
+  .header_logo{
+  
+  }
+  
+  .header_user-name{
+  
+  }
+  
+  .header_serch{
+    width: 400px;
+    height: 60px;
+  }
+
+  .categoly{
+    margin: 0auto;
+    width: 60px;       
+  }
+
+  .header_brand{
+    width: 60px;       
+    margin: 0auto;
+
+  }
+
+  .login{
+    width: 60px;       
+    margin: 0auto;
+  }
+
+  .header_user-name{
+    width: 60px;       
+    margin: 0auto;
+  }
