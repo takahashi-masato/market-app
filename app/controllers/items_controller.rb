@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user! , only: [:new]
 
   def index
     @items = Item.includes(:images).order("created_at DESC")
-    # @item_image = @item.images
   end
 
   def new
     @item = Item.new
-    @item.images.new
+    @item.images.build
   end
 
   def create
@@ -17,14 +17,23 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-    
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    impressionist(@item)
+    # , nil, :unique => [:session_hash]
+    @page_views = @item.impressionist_count
+  end
+
+  def index_more_new_page
+    @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
   end
 
 
   private
   def item_params
     params.require(:item).permit(:name,:description,:brand_name,:item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:image_id,images_attributes:[:id,:image,:item_id])
-
   end
 end
 

@@ -10,10 +10,8 @@
         %p1.mainInnerText--under FURIMAはだれでもかんたんに出品・購入できる 
         %br フリマアプリです
       .mainView__inner--DLimage
-        = link_to root_path  do
-          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"
-        = link_to root_path do
-          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg'
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
   .reasonView
     .reasonViewHeadText
       %h2 FURIMAが選ばれる３つの理由
@@ -64,10 +62,8 @@
             %br 
               ほしかったあの商品に出会えるかもしれません。
       .membershipView__inner--DLimage
-        = link_to root_path  do
-          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"
-        = link_to root_path do
-          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg'
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
   .featureView
     .featureViewHeadText
       %h3 FURIMAの特徴
@@ -101,10 +97,9 @@
                 ードだけでなく、ポイント
                 %br 
                   や売上金など多彩な方法があります。
-  .itemList
 
-  = render 'items/items_picup'
-  
+  =render partial: 'items/items_picup' , locals: { item: @item }
+
   .salesView
     .salesView__image
       = image_tag 'material/pict/bg-appBanner-pict.jpg',width:"100%" ,height:"400px"
@@ -113,27 +108,27 @@
         %h3.salesViewText--upper だれでもかんたん、人生を変えるフリマアプリ
         %h2.salesViewText--under 今すぐ無料ダウンロード！
       .salesView__inner--DLimage
-        = link_to root_path , size: "200x100" do
-          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"
-        = link_to root_path do
-          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg'
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
 .footer
   .footerText
     .footerText__left
-      %h2 FURIMAについて
-      %h4 会社概要（運営会社）
-      %h4 プライバシーポリシー
-      %h4 FURIMA利用規約
-      %h4 ポイントに関する特約
+      %h4.footerText__left--head FURIMAについて
+      %p.footerText__left--under 会社概要（運営会社）
+      %p.footerText__left--under プライバシーポリシー
+      %p.footerText__left--under FURIMA利用規約
+      %p.footerText__left--under ポイントに関する特約
     .footerText__center
-      %h2 FURIMAを見る
+      %h4.footerText__center--head FURIMAを見る
       .footerText__center--links
         = link_to "カテゴリー一覧", "#" ,class: "footer--categoryLink"
         = link_to "ブランド一覧", "#" , class: "footer--brandLink"
     .footerText__right
-      %h2 ヘルプ＆ガイド
-      %h4 FURIMAガイド
-      %h4 FURIMAロゴ利用ガイドライン
-      %h4 お知らせ
+      %h4.footerText__right--head  ヘルプ＆ガイド 
+      %p.footerText__right--under  FURIMAガイド
+      %p.footerText__right--under  FURIMAロゴ利用ガイドライン
+      %p.footerText__right--under  お知らせ
   .footer__image
-    = image_tag 'material/logo/logo-white.png', size:"110x50"
+    = image_tag 'material/logo/logo-white.png', size:"160x47"
+  .footer__imageUnderLogo
+    %p ©︎ FURIMA

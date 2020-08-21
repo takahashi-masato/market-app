@@ -11,25 +11,21 @@
       width: 800px;
       height: 400px;
       color: white;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-shadow:$topTextShadow;
       .mainInnerText--upper{
         font-size: 60px;
-
       }
       .mainInnerText--under{
         height: 100px;
         padding-top: 50px;
         font-size: 20px;
       }
-      .mainView__inner--DLimage{
-       
-      }
     }
   }
   .reasonView{
     width: 100%;
     padding: 50px 30px ;
-   
+    text-align: center;
     .reasonViewHeadText{
       text-align: center;
       font-size: 30px;
@@ -40,6 +36,8 @@
     }
     .reasonViewMain{
       display: flex;
+      width: 1000px;
+      margin: 0 auto;
       .reasonViewMain__1{
         width: 33%;
         margin: 0 10px;
@@ -48,9 +46,10 @@
           .imageNum1{
             position: absolute;
             top: 0;
+            left: 17px;
             width: 60px;
             height: 60px;
-            background-color: #3CCACE;
+            background-color: $greenColor;
             color: white;
             font-size: 25px;
             line-height: 60px;
@@ -67,15 +66,12 @@
             text-align: center;
             margin: 10px 0;
             .emphasisText{
-              color: #3CCACE;
+              color: $greenColor;
               font-weight: bold;
               .textNomal{
                 color: black;
               }
             }
-          }
-          .text__under1{
-
           }
         }
       }
@@ -87,9 +83,10 @@
           .imageNum2{
             position: absolute;
             top: 0;
+            left: 17px;
             width: 60px;
             height: 60px;
-            background-color: #3CCACE;
+            background-color: $greenColor;
             color: white;
             font-size: 25px;
             line-height: 60px;
@@ -106,15 +103,12 @@
             text-align: center;
             margin: 10px 0;
             .emphasisText{
-              color: #3CCACE;
+              color: $greenColor;
               font-weight: bold;
               .textNomal{
                 color: black;
               }
             }
-          }
-          .text__under2{
-
           }
         }
       }
@@ -126,9 +120,10 @@
           .imageNum3{
             position: absolute;
             top: 0;
+            left: 17px;
             width: 60px;
             height: 60px;
-            background-color: #3CCACE;
+            background-color: $greenColor;
             color: white;
             font-size: 25px;
             line-height: 60px;
@@ -148,13 +143,9 @@
               color: black;
               font-weight: bold; 
               .emphasisText{
-                color: #3CCACE;
-                             
+                color: $greenColor;                             
               }
             }
-          }
-          .text__under3{
-
           }
         }  
       }
@@ -167,10 +158,10 @@
       top: 0;
       width: 600px;
       height: 300px;
-      padding: 90px 0 50px 0;
+      padding: 90px 0 50px 80px;
       .membershipView__inner--text{
         color: white;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-shadow: $topTextShadow;
         .membershipText__upper{
           width: 600px;
           height: 60px;
@@ -184,10 +175,6 @@
       }
     }
   }
-  
-
-
-
   .featureView{
     width: 100%;
     padding: 30px 60px;
@@ -202,10 +189,9 @@
       }
     }
     .featureViewInner{
-      width: 100%;
+      width: 80vw;
       display: flex;
-      
-      
+      margin: 0 auto;
       .featureViewInner__1{
         width: 33%;
         padding: 0 20px;
@@ -213,6 +199,7 @@
           text-align: center;
         }
         .featureViewInner__1--text{
+          text-align: center;
           .featureText__upper1{
             font-size: 20px;
             margin-bottom: 20px;
@@ -230,10 +217,10 @@
           text-align: center;
         }
         .featureViewInner__2--text{
+          text-align: center;
           .featureText__upper2{
             font-size: 20px;
-            margin-bottom: 20px;
-            
+            margin-bottom: 20px;   
             h3{
               font-weight: bold;
             }
@@ -247,6 +234,7 @@
          text-align: center;
         }
         .featureViewInner__3--text{
+          text-align: center;
           .featureText__upper3{
             font-size: 20px;
             margin-bottom: 20px;
@@ -255,28 +243,22 @@
               font-weight: bold;
             }
           }
-          .featureText__upper3{
-            
-          }
         }
       }
     }
   }
-
-
   .salesView{
     width: 100%;
     height: 400px;
     position: relative;
     .salesView__inner{
       position: absolute;
-      top: 150px;
-      left: 250px;
+      top: 25%;
+      left: 25%;
       color: white;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-shadow: $topTextShadow;
       width: 540px;
       .salesView__inner--text{
-
         .salesViewText--upper{
           font-size: 25px;
         }
@@ -288,41 +270,73 @@
     }
   }
 }
-
-
-
 .footer{
   background-color: black;
   width: 100%;
-  height: 500px;
+  height: 350px;
   .footerText{
     color: white;
     display: flex;
     justify-content: space-around;
-    height: 300px;
+    height: 250px;
+    width: 800px;
+    margin: auto;
+    padding-top: 60px;
     .footerText__left{
-
+      
+      h4.footerText__left--head {
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
+      p.footerText__left--under{
+        font-size: 12px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
     }
     .footerText__center{
+      h4.footerText__center--head{
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
       .footerText__center--links{
         display: flex;
         flex-direction: column;
         .footer--categoryLink{
           color: white;
+          font-size: 12px;
           text-decoration: none;
+          text-align: center;
+          margin-bottom: 10px;
         }
         .footer--brandLink{
           color: white;
           text-decoration: none;
+          font-size: 12px;
+          text-align: center;
         }
       }
     }
     .footerText__right{
-      
+      h4.footerText__right--head {
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
+      p.footerText__right--under{
+        font-size: 12px; 
+        margin-bottom: 10px;
+        text-align: center;
+      }
     }
   }
   .footer__image{
     width: 100%;
+    height: 40px;
     text-align: center;
+  }
+  .footer__imageUnderLogo{
+    text-align: center;
+    color: white;
+    font-size: 13px;
   }
 }
