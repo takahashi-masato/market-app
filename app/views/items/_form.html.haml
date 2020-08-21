@@ -1,7 +1,9 @@
 .form
   = form_for [@item],html: { multipart: true } do |f|
     .name
-      .label 商品名
+      %span.label 商品名
+      %span.needs 必須
+      .input
       =f.text_field :name
     .image
     #image-box 
@@ -12,37 +14,45 @@
           %br/
           %span.js-remove 
     .price
-      .label 価格
-      =f.number_field :price
-      .needs 必須
+      %span.label 価格
+      %span.needs 必須
+      .input
+        =f.number_field :price
     .categoly_id
-      .label カテゴリID
-      =f.number_field :category_id
+      %span.label カテゴリID
+      %span.needs 必須
+      .input
+        =f.number_field :category_id
     .description
-      .label 商品説明
-      =f.text_field :description
+      %span.label 商品説明
+      %span.needs 必須
+      .input
+        =f.text_field :description
       .needs 必須
     .brand
-      .label ブランド名
-      =f.text_field :brand_name
+      %span.label ブランド名
+      %span.needs 任意
+      .input
+        =f.text_field :brand_name
     .item_condition
-      .label 状態
-      =f.select :item_condition,[["新品", 0],["未使用に近い", 1],["使用感あり", 2],["目立つキズなどがある",3]]
-      .needs 必須
+      %span.label 状態
+      %span.needs 必須
+      .input
+        =f.select :item_condition,[["新品", 0],["未使用に近い", 1],["使用感あり", 2],["目立つキズなどがある",3]]
     .shipping_payer
-      .label 送料
-      =f.select :shipping_payer,[["出品者負担(送料込み）", 0],["購入者負担（代引き）", 1]]
-      .needs 必須
+      %span.label 送料
+      %span.needs 必須
+      .input
+        =f.select :shipping_payer,[["出品者負担(送料込み）", 0],["購入者負担（代引き）", 1]]
     .shipping_from_area
-      .label 発送元
-      =f.text_field :shipping_from_area
-      .needs 必須
+      %span.label 発送元
+      %span.needs 必須
+      .input
+        = f.collection_select :shipping_from_area, Prefecture.all, :id, :name, prompt: "--", class: 'input'
     .shipping_duration
-      .label 発送までの期間
+      %span.label 発送までの期間
+      %span.needs 必須
+      .input
       =f.select :shipping_duration,[["1−２日", 0],["3−４日", 1],["5-7日", 2],["一週間以上",3]]
-      .needs 必須
-    .user_id
-      .label user_id
-      = current_user.id
     .submit_btn
     =f.submit '出品する'

@@ -78,3 +78,4 @@ end
   gem 'haml-rails'
   gem 'devise'
   gem 'jquery-rails'
+  gem 'active_hash'
