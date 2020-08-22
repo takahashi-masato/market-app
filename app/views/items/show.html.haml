@@ -1,0 +1,36 @@
+-# カテゴリー
+%table
+  %tbody
+    %tr
+      %th
+        カテゴリー
+      %td
+        -# 親要素だけの場合
+        -@parents.each do |parent|
+          -if @item.category_id == parent.id
+            = link_to '#' do
+              = parent.name
+            %br
+
+          -# 子要素までの場合
+          -parent.children.each do |child|
+            -if @item.category_id == child.id
+              = link_to '#' do
+                = parent.name
+              %br
+              = link_to '#' do
+                = child.name
+              %br
+
+            -# 孫要素までの場合
+            -child.children.each do |grandchild|
+              -if @item.category_id == grandchild.id
+                = link_to '#' do
+                  = parent.name
+                %br
+                = link_to '#' do
+                  = child.name
+                %br
+                = link_to '#' do
+                  = grandchild.name
+                %br
