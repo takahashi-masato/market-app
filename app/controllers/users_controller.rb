@@ -31,6 +31,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email)
-    params.require(:identification).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :birthday)
+    params.require(:deliver_address).permit(:postal_code, :prefecture, :city, :address1, :address2, :telephone).merge(user_id: current_user.id)
   end
 end
