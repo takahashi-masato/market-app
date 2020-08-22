@@ -1,0 +1,129 @@
+= render 'items/header'
+= render 'items/exhibit_btn'
+.main
+  .mainView
+    .mainView__image 
+      = image_tag 'material/pict/bg-mainVisual-pict_pc.jpg' ,class: "mainImage" ,width:"100%" ,height:"560px"
+    .mainView__inner
+      .mainView__inner--text
+        %p1.mainInnerText--upper 人生を変えるフリマアプリ
+        %p1.mainInnerText--under FURIMAはだれでもかんたんに出品・購入できる 
+        %br フリマアプリです
+      .mainView__inner--DLimage
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
+  .reasonView
+    .reasonViewHeadText
+      %h2 FURIMAが選ばれる３つの理由
+    .reasonViewMain
+      .reasonViewMain__1
+        .reasonViewMain__1--image
+          = image_tag 'material/pict/pict-reason-01.jpg',size: "280x280"
+          .imageNum1 1
+        .reasonViewMain__1--text
+          .text__upper1
+            %h3.emphasisText 
+              ３分 
+              %span.textNomal  ですぐに出品
+          .text__under1
+            %p1 スマホで入力するだけで簡単に出品できる！
+      .reasonViewMain__2
+        .reasonViewMain__2--image
+          = image_tag 'material/pict/pict-reason-02.jpg',size: "280x280"
+          .imageNum2 2
+        .reasonViewMain__2--text 
+          .text__upper2
+            %h3.emphasisText 
+              シンプル
+              %span.textNomal で使いやすい
+          .text__under2
+            %p1 めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .reasonViewMain__3
+        .reasonViewMain__3--image
+          = image_tag 'material/pict/pict-reason-03.jpg',size: "280x280"
+          .imageNum3 3
+        .reasonViewMain__3--text
+          .text__upper3
+            %h3.textNomal 
+              手数料
+              %span.emphasisText  業界最安
+          .text__under3
+            %p1 最大3%でお得に出品&購入！
+  .membershipView
+    .membershipView__imege
+      = image_tag 'material/pict/bg-topMiddleDl-pict.jpg',width:"100%" ,height:"400px"
+    .membershipView__inner
+      .membershipView__inner--text
+        %h3.membershipText__upper 会員数日本一位
+        %p1.membershipText__under
+          FURIMAは、フリマアプリで最も人気。
+          %br 
+            出品・購入回数も業界最多です！
+            %br 
+              ほしかったあの商品に出会えるかもしれません。
+      .membershipView__inner--DLimage
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
+  .featureView
+    .featureViewHeadText
+      %h3 FURIMAの特徴
+    .featureViewInner
+      .featureViewInner__1
+        .featureViewInner__1--image
+          = image_tag 'material/icon/icon-01.png',size: "170x220"
+        .featureViewInner__1--text
+          .featureText__upper1
+            %h3 簡単に売り買いできる
+          .featureText__under1
+            %p1 スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .featureViewInner__2
+        .featureViewInner__2--image
+          = image_tag 'material/icon/icon-03.png',size: "170x220"
+        .featureViewInner__2--text
+          .featureText__upper2
+            %h3 売上金は即日振込みに対応
+          .featureText__under2
+            %p1 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .featureViewInner__3
+        .featureViewInner__3--image
+          = image_tag 'material/icon/icon-04.png',size: "170x220"
+        .featureViewInner__3--text
+          .featureText__upper3
+            %h3 様々な支払いに対応
+          .featureText__under3
+            %p1 お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  =render partial: 'items/items_picup' , locals: { item: @item }
+
+  .salesView
+    .salesView__image
+      = image_tag 'material/pict/bg-appBanner-pict.jpg',width:"100%" ,height:"400px"
+    .salesView__inner
+      .salesView__inner--text
+        %h3.salesViewText--upper だれでもかんたん、人生を変えるフリマアプリ
+        %h2.salesViewText--under 今すぐ無料ダウンロード！
+      .salesView__inner--DLimage
+        = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",size: "200x100"
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg',size: "200x100"
+.footer
+  .footerText
+    .footerText__left
+      %h4.footerText__left--head FURIMAについて
+      %p.footerText__left--under 会社概要（運営会社）
+      %p.footerText__left--under プライバシーポリシー
+      %p.footerText__left--under FURIMA利用規約
+      %p.footerText__left--under ポイントに関する特約
+    .footerText__center
+      %h4.footerText__center--head FURIMAを見る
+      .footerText__center--links
+        = link_to "カテゴリー一覧", "#" ,class: "footer--categoryLink"
+        = link_to "ブランド一覧", "#" , class: "footer--brandLink"
+    .footerText__right
+      %h4.footerText__right--head  ヘルプ＆ガイド 
+      %p.footerText__right--under  FURIMAガイド
+      %p.footerText__right--under  FURIMAロゴ利用ガイドライン
+      %p.footerText__right--under  お知らせ
+  .footer__image
+    = image_tag 'material/logo/logo-white.png', size:"160x47"
+  .footer__imageUnderLogo
+    %p ©︎ FURIMA
