@@ -6,7 +6,7 @@ class IdentificationsController < ApplicationController
 
   def new
     @identity = Identifications.new
-    @identity.user << current_user
+    @identity.user << @users
   end
 
   def create
@@ -16,12 +16,17 @@ class IdentificationsController < ApplicationController
   def edit
   end
 
-  def updata
+  def update
+    if current_user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
 private
   def identifications_params
-    params.require(:identifications).permit(:nickname, user_id: [] )
+    params.require(:identification).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :birthday).merge(user_id: current_user.id)
   end
 
 end
