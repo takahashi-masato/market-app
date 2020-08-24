@@ -1,18 +1,19 @@
 .form
   = form_for [@item],html: { multipart: true } do |f|
-    .name
-      %span.label 商品名
-      %span.needs 必須
-      .input
-      =f.text_field :name
     .image
-    #image-box 
+      #image-box 
       =f.fields_for :images do |image|
-        .label 商品画像
+        %span.label 商品画像
+        %span.needs 必須
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field  :url, class: 'js-file'
           %br/
           %span.js-remove 
+    .name
+      %span.label 商品名
+      %span.needs 必須
+      .input
+        =f.text_field :name
     .price
       %span.label 価格
       %span.needs 必須
@@ -28,10 +29,9 @@
       %span.needs 必須
       .input
         =f.text_field :description
-      .needs 必須
     .brand
       %span.label ブランド名
-      %span.needs 任意
+      %span.not_needs 任意
       .input
         =f.text_field :brand_name
     .item_condition
