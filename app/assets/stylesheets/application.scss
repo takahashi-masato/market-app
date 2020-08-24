@@ -1,6 +1,8 @@
 @import "reset";
+@import "modules/all";
 @import "modules/user";
 @import "new";
 @import "items";
-@import "form";
-@import "header";
+@import "modules/form";
+@import "modules/header";
+@import "modules/footer";
