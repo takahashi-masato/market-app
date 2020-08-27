@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
- :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
 }
 
 devise_scope :user do
-  get 'users/idetification', to: "users/registrations#new_identification"
-  
+  get 'users/identification', to: "users/registrations#new_identification"
+  get "sign_in", :to => "users/sessions#new"
+  get "sign_out", :to => "users/sessions#destroy"
 end
 
-  # root 'users#index'
-  resources :users, only: [:index, :new, :create, :edit, :update, :show] do
-    resources :identifications, only: [:index, :new, :create, :edit, :update]
-    resources :deliver_addresses
-  end
+  # root 'items#index'
 end
