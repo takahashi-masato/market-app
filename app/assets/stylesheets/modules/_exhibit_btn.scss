@@ -1,0 +1,24 @@
+.exhibitBtn{
+  color: white;
+  text-decoration: none;
+  position: relative;
+  &Link{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1;
+    &__image{
+      width: 110px;
+      height: 110px;
+      background-color: $greenColor;
+      padding: 45px 0 0 30px;
+      border-radius: 10px;
+      position: relative;
+    }
+    &__text{
+      position: absolute;
+      top: 15px;
+      right: 20px;      
+    }
+  }
+}

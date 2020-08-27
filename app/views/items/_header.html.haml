@@ -1,0 +1,26 @@
+.header
+  .headerMain
+    .headerMain__mainIcon
+      = link_to root_path do
+        = image_tag 'material/logo/logo.png', class: "mainIcon",  size: "160x45"
+    .headerMain__search
+      = form_with url: root_path , class:"formArea" do |f|
+        = f.text_field '', class: "headerMain__search--field", placeholder:"キーワードから探す"
+        = f.label :name do
+          = image_tag 'material/icon/icon-search 1.png' ,size: "35x35",class:"searchBtnImage" do
+            = f.submit
+  .ul.headerList
+    .headerList__left
+      .li カテゴリー
+      .li.headerList__left--brand ブランド
+    .headerList__right
+      - if user_signed_in?
+        .li
+          = link_to "ログアウト" , destroy_user_session_path, method: :delete ,class: "userLink--left"
+        .li
+          = link_to "マイページ", new_user_registration_path ,class: "userLink--right"
+      - else
+        .li
+          = link_to "ログイン" , new_user_session_path,class: "userLink--left"
+        .li
+          = link_to "新規会員登録", new_user_registration_path ,class: "userLink--right"
