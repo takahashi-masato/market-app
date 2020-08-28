@@ -1,9 +1,11 @@
-@import 'reset';
-@import 'modules/all';
+@import "reset";
+@import "modules/all";
+@import "modules/user";
+@import "new";
+@import "modules/form";
+@import "modules/header";
+@import "modules/footer";
 @import 'modules/top';
-@import 'modules/header';
 @import 'modules/exhibit_btn';
 @import 'modules/items_picup';
 @import 'modules/pagenate';
-
-
