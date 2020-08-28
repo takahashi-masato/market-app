@@ -81,3 +81,4 @@ end
   gem 'kaminari'
   gem 'erb2haml'
   gem 'payjp'
+  gem "jquery-rails"

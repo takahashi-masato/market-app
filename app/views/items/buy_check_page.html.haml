@@ -1,0 +1,8 @@
+%h2 商品詳細
+
+- @item.images.each do |item|
+  = image_tag item.image.url
+= @item.price
+
+= form_tag(action: :pay, method: :post) do
+  -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b5dabc417590a29c092cb137"}
