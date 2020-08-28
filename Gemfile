@@ -77,6 +77,8 @@ end
   gem 'fog-aws'
   gem 'haml-rails'
   gem 'devise'
+  gem 'jquery-rails'
+  gem 'active_hash'
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
