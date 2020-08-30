@@ -75,6 +75,7 @@ end
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog-aws'
+  gem 'ancestry'
   gem 'haml-rails'
   gem 'devise'
   gem 'jquery-rails'
@@ -82,3 +83,4 @@ end
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
+  gem 'responders' , '~>3.0.1'
