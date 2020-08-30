@@ -1,3 +1,4 @@
+
 html{
   color:#000;
   background:#FFF;
@@ -81,7 +82,6 @@ acronym {
   font-variant:normal;
 }
 
-
 sup {
   vertical-align:text-top;
 }
@@ -100,6 +100,10 @@ input,
 textarea,
 select {
   *font-size:100%;
+}
+
+legend {
+  color:#000;
 }
 
 legend {

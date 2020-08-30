@@ -20,9 +20,16 @@ ActiveRecord::Schema.define(version: 2020_08_21_083110) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 end
- 
-ActiveRecord::Schema.define(version: 2020_08_16_091200) do
 
+ActiveRecord::Schema.define(version: 2020_08_24_155534) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
     t.integer "item_id"
@@ -57,20 +64,22 @@ ActiveRecord::Schema.define(version: 2020_08_16_091200) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.integer "category_id", null: false
     t.string "brand_name"
-    t.string "item_condition"
-    t.string "shipping_payer"
-    t.string "shipping_from_area"
-    t.string "shipping_duration"
-    t.integer "price"
-    t.integer "user_id"
+    t.string "item_condition", null: false
+    t.string "shipping_payer", null: false
+    t.string "shipping_from_area", null: false
+    t.string "shipping_duration", null: false
+    t.string "price", null: false
+    t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_091200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
