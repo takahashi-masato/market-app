@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'index_more_new_page'
+      get 'done_page'
       post 'pay/:id'=> 'items#pay', as: 'pay'
     end
   end

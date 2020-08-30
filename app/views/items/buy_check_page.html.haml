@@ -3,6 +3,12 @@
 - @item.images.each do |item|
   = image_tag item.image.url
 = @item.price
+= "**** **** ****#{@card_data.last4}" 
+= "#{@card_data.exp_month}/#{@card_data.exp_year.to_s.slice(2,3)}" 
 
-= form_tag(action: :pay, method: :post) do
+
+= form_with url: pay_items_path(@item.id), local: true do |f|
+  = f.submit "購入する"
+
+
   -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b5dabc417590a29c092cb137"}

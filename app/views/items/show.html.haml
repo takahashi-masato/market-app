@@ -1,9 +1,23 @@
-%h2 商品詳細
-
-- @item.images.each do |item|
-  = image_tag item.image.url
-= @item.name
-= @item.price
-= "閲覧数:#{@item.impressionist_count}"
-
-= link_to "購入画面に進む", buy_check_page_item_path
+.ItemDetail
+  .ItemDetail__title
+    %h2 商品詳細
+  - if @item.buy_status == 1
+    .ItemDetail__data--image
+      - @item.images.each do |item|
+        = image_tag item.image.url
+      .sold_out_image 
+      .sold_out_text SOLD
+    .ItemDetail__data 
+      = @item.name
+      = @item.price
+      = "閲覧数:#{@item.impressionist_count}"
+      %h1 売り切れました
+  - else
+    .ItemDetail__data--image
+    - @item.images.each do |item|
+      = image_tag item.image.url
+    .ItemDetail__data 
+      = @item.name
+      = @item.price
+      = "閲覧数:#{@item.impressionist_count}"
+      = link_to "購入画面に進む", buy_check_page_item_path
