@@ -1,6 +1,6 @@
 %h2 お客様情報登録
 
-= form_for (user_session_path, method: :post, local: :true) do |f|
+= form_for("@identification") do |f|
   .field
     = f.label :family_name_kanji
     %br/
