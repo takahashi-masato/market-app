@@ -1,6 +1,4 @@
 %h1 FURIMA
 = current_user.nickname
 
-= render partial: "identity"
-
 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
