@@ -18,21 +18,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
-
+  def create
+    @user = User.new(sign_up_params)
+    if @user.save
+      redirect_to root_path
+    else
+      redirect_to new_user_registration_path
+    end
+  end
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -43,12 +50,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys:
+                 [:nickname, :family_name_kanji, :first_name_kanji, :birthday])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
