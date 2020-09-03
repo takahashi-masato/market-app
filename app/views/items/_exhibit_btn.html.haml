@@ -1,0 +1,14 @@
+- if user_signed_in?
+  = link_to new_item_path , class:"exhibitBtn" do
+    .exhibitBtnLink
+      .exhibitBtnLink__image
+        = image_tag 'material/icon/icon_camera.png', class:"cameraImage",size: "50x50"
+      .exhibitBtnLink__text
+        %p1 出品する
+- else
+  = link_to new_user_session_path , class:"exhibitBtn" do
+    .exhibitBtnLink
+      .exhibitBtnLink__image
+        = image_tag 'material/icon/icon_camera.png', class:"cameraImage",size: "50x50"
+      .exhibitBtnLink__text
+        %p1 出品する

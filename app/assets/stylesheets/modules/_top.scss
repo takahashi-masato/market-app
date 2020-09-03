@@ -1,0 +1,341 @@
+.main{
+  width: 100vw;
+  .mainView{
+    position: relative;
+    width: 100vw;
+    height: 560px;
+    &__inner{
+      position: absolute;
+      top: 200px;
+      left: 60px;
+      width: 800px;
+      height: 400px;
+      color: white;
+      text-shadow:$topTextShadow;
+      .mainInnerText--upper{
+        font-size: 60px;
+      }
+      .mainInnerText--under{
+        height: 100px;
+        padding-top: 50px;
+        font-size: 20px;
+      }
+    }
+  }
+  .reasonView{
+    width: 100%;
+    padding: 50px 30px ;
+    text-align: center;
+    &HeadText{
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+      h2{
+        font-weight: bold;
+      }
+    }
+    &Main{
+      display: flex;
+      width: 1000px;
+      margin: 0 auto;
+      &__1{
+        width: 33%;
+        margin: 0 10px;
+        &--image{
+          position: relative;
+          .imageNum1{
+            position: absolute;
+            top: 0;
+            left: 17px;
+            width: 60px;
+            height: 60px;
+            background-color: $greenColor;
+            color: white;
+            font-size: 25px;
+            line-height: 60px;
+            text-align: center;
+          }
+        }
+        &--text{
+          width: 100%;
+          height: 100px;
+          .text__upper1{
+            height: 50px;
+            font-size: 25px;
+            line-height: 50px;
+            text-align: center;
+            margin: 10px 0;
+            .emphasisText{
+              color: $greenColor;
+              font-weight: bold;
+              .textNomal{
+                color: black;
+              }
+            }
+          }
+        }
+      }
+      &__2{
+        width: 33%;
+        margin: 0 10px;
+        &--image{
+          position: relative;
+          .imageNum2{
+            position: absolute;
+            top: 0;
+            left: 17px;
+            width: 60px;
+            height: 60px;
+            background-color: $greenColor;
+            color: white;
+            font-size: 25px;
+            line-height: 60px;
+            text-align: center;
+          }
+        }
+        &--text{
+          width: 100%;
+          height: 100px;
+          .text__upper2{
+            height: 50px;
+            font-size: 25px;
+            line-height: 50px;
+            text-align: center;
+            margin: 10px 0;
+            .emphasisText{
+              color: $greenColor;
+              font-weight: bold;
+              .textNomal{
+                color: black;
+              }
+            }
+          }
+        }
+      }
+      &__3{
+        width: 33%;
+        margin: 0 10px;
+        &--image{
+          position: relative;
+          .imageNum3{
+            position: absolute;
+            top: 0;
+            left: 17px;
+            width: 60px;
+            height: 60px;
+            background-color: $greenColor;
+            color: white;
+            font-size: 25px;
+            line-height: 60px;
+            text-align: center;
+          }
+        }
+        &--text{
+          width: 100%;
+          height: 100px;
+          .text__upper3{
+            height: 50px;
+            font-size: 25px;
+            line-height: 50px;
+            text-align: center;
+            margin: 10px 0;
+            .textNomal{
+              color: black;
+              font-weight: bold; 
+              .emphasisText{
+                color: $greenColor;                             
+              }
+            }
+          }
+        }  
+      }
+    }
+  }
+  .membershipView{
+    position: relative;
+    &__inner{
+      position: absolute;
+      top: 0;
+      width: 600px;
+      height: 300px;
+      padding: 90px 0 50px 80px;
+      &--text{
+        color: white;
+        text-shadow: $topTextShadow;
+        .membershipText__upper{
+          width: 600px;
+          height: 60px;
+          line-height: 60px;
+          font-weight: bold;
+          font-size: 25px;
+        }
+        .membershipText__under{
+          font-size: 17px;
+        }
+      }
+    }
+  }
+  .featureView{
+    width: 100%;
+    padding: 30px 60px;
+    &HeadText{
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 20px;
+      h3{
+         font-weight: bold;
+      }
+    }
+    &Inner{
+      width: 80vw;
+      display: flex;
+      margin: 0 auto;
+      &__1{
+        width: 33%;
+        padding: 0 20px;
+        &--image{
+          text-align: center;
+        }
+        &--text{
+          text-align: center;
+          .featureText__upper1{
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            h3{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__2{
+        width: 33%;
+        padding: 0 25px;
+        &--image{
+          text-align: center;
+        }
+        &--text{
+          text-align: center;
+          .featureText__upper2{
+            font-size: 20px;
+            margin-bottom: 20px;   
+            h3{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__3{
+        width: 33%;
+        padding: 0 20px;
+        &--image{
+         text-align: center;
+        }
+        &--text{
+          text-align: center;
+          .featureText__upper3{
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            h3{
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+  .salesView{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    &__inner{
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      color: white;
+      text-shadow: $topTextShadow;
+      width: 540px;
+      &--text{
+        .salesViewText--upper{
+          font-size: 25px;
+        }
+        .salesViewText--under{
+          font-size: 35px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.footer{
+  background-color: black;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  &Text{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 250px;
+    width: 800px;
+    margin: auto;
+    padding-top: 60px;
+    &__left{
+      
+      &--head {
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
+      &--under{
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+    }
+    &__center{
+      &--head{
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
+      &--links{
+        display: flex;
+        flex-direction: column;
+        .footer--categoryLink{
+          color: white;
+          font-size: 12px;
+          text-decoration: none;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        .footer--brandLink{
+          color: white;
+          text-decoration: none;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+    &__right{
+      &--head {
+        padding-bottom: 30px;
+        font-weight: bold;
+      }
+      &--under{
+        font-size: 12px; 
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .footer__image{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+  }
+  .footer__imageUnderLogo{
+    text-align: center;
+    color: white;
+    font-size: 13px;
+  }
+}
