@@ -37,6 +37,13 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
   end
 
+  def get_category_children
+    @category_children = Category.find("#{params[:parent_id]}").children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
 
   private
   def item_params
