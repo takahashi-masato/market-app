@@ -1,17 +1,11 @@
+= render 'items/header'
+
 .cardNewForm  
   .cardNewForm__title
     %h1 クレジットカード情報入力
-
-  = form_with url: cards_path , local: true , id: "card_new_formfield" do |f|
-    = f.label "カード番号"
-    = f.text_field :card_number, placeholder: '半角数字のみ',id:"card_num_input"
-    %br
-    = f.label "有効期限"
-    = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'exp_month_input'
-    = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , id: 'exp_year_input'
-    %br
-    = f.label "セキュリティコード"
-    = f.text_field :cvc, placeholder: 'カード背面4桁もしくは3桁の番号',id:"cvc_input", maxlength: "4"
-    %br
-    #card_token
-    = f.submit '追加する', id: "card_new_submit"
+  - if @card.present?
+    = form_with url: cards_cards_path , local: true , id: "card_new_formfield" do |f|
+      = render partial: "cards/new_card_form" , locals: { f: f ,back_url: @back_url}
+  - else
+    = form_with url: cards_path , local: true , id: "card_new_formfield" do |f|
+      = render partial:"cards/new_card_form" , locals: { f: f ,back_url: @back_url }

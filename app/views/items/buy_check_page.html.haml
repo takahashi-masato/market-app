@@ -3,10 +3,13 @@
 - @item.images.each do |item|
   = image_tag item.image.url
 = @item.price
-= "**** **** ****#{@card_data.last4}" 
-= "#{@card_data.exp_month}/#{@card_data.exp_year.to_s.slice(2,3)}" 
-
-
+.buyCheckPage__card
+  .buyCheckPage__card--title
+    %h2 支払い方法
+  .buyCheckPage__card--data
+    = render partial: "cards/card_data", locals:{card: @default_card}
+  .buyCheckPage__card--change
+    = link_to "支払い方法を変更する", cards_path
 = form_with url: pay_items_path(@item.id), local: true do |f|
   = f.submit "購入する"
 

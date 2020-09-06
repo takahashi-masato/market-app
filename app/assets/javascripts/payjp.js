@@ -1,4 +1,3 @@
-// $(document).on('turbolinks:load', function () {
 $(function() {
   Payjp.setPublicKey('pk_test_b5dabc417590a29c092cb137');
   

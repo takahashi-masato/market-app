@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :cards , only: [:new,:create,:show,:delete]
+  resources :cards , only: [:index,:new,:create,:destroy] do 
+    collection do
+      post 'cards', to:'cards#add_card'
+    end
+    member do
+      patch 'cards', to:'cards#change_default_card'
+    end
+  end
   resources :users , only: [:show]
   resources :items do
     resources :images

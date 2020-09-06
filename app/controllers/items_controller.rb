@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user! , only: [:new]
   require 'payjp'
+  before_action :authenticate_user! , only: [:new]
+  before_action :set_api_key, only:[:buy_check_page, :pay]
+  before_action :set_card_table_id, only:[:buy_check_page, :pay]
+
 
   def index
     @items = Item.includes(:images).order("created_at DESC")
@@ -32,18 +35,14 @@ class ItemsController < ApplicationController
   end
 
   def buy_check_page
-    Payjp.api_key = "sk_test_2b6a107dea98c4ea8c9b5a84"
     @item = Item.find(params[:id])
-    @card = Card.find_by(user_id: current_user.id)
     @customer = Payjp::Customer.retrieve(@card.customer_id) 
-    @card_data = @customer.cards.retrieve(@customer.default_card)
+    @default_card = @customer.cards.retrieve(@customer.default_card)
+    
   end
 
   def pay
-    Payjp.api_key = "sk_test_2b6a107dea98c4ea8c9b5a84"
-
     @item = Item.find(params[:id])
-    @card = Card.where(user_id: current_user.id).where.not(card_id: nil).first
     @customer = Payjp::Customer.retrieve(@card.customer_id)
 
     Payjp::Charge.create(
@@ -63,6 +62,14 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name,:description,:brand_name,:item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:buy_status,:image_id,images_attributes:[:id,:image,:item_id]).merge(user_id: current_user.id)
+  end
+
+  def set_api_key
+    Payjp.api_key = "sk_test_2b6a107dea98c4ea8c9b5a84"
+  end
+
+  def set_card_table_id
+    @card = Card.find_by(user_id: current_user.id)
   end
 end
 
