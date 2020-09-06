@@ -17,20 +17,20 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
   def create
-    @user = User.new(configure_sign_in_params)
+    @user = User.new(sign_in_params)
     if @user.save
       redirect_to root_path
     else
-      render "new"
+      render :new
     end
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
   def destroy
+    super
+    session[:keep_signed_out] = true
   end
+
 
   protected
 
@@ -41,6 +41,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
 end
