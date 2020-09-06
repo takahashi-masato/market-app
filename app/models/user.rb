@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   has_one :identification
   has_one :deliver_address
+  has_many :items,foreign_key: :seller_id, dependent: :destroy
 
   validates :nickname, presence: true, uniqueness: true
-  validates :name, presence: true, uniqueness: true
-  has_many :items,foreign_key: :seller_id, dependent: :destroy
+
 end
