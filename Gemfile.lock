@@ -112,6 +112,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
+    devise-i18n-views (0.3.7)
     erb2haml (0.1.5)
       html2haml
     erubi (1.9.0)
@@ -321,8 +324,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ancestry
   active_hash
+  ancestry
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -336,6 +339,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
+  devise-i18n-views
   erb2haml
   fog-aws
   haml-rails
