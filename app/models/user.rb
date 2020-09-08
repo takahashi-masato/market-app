@@ -7,7 +7,10 @@ class User < ApplicationRecord
   has_one :identification
   has_one :deliver_address
   has_many :items,foreign_key: :seller_id, dependent: :destroy
+  accepts_nested_attributes_for :identification
+  accepts_nested_attributes_for :deliver_address
 
   validates :nickname, presence: true, uniqueness: true
+
 
 end
