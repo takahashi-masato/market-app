@@ -20,11 +20,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to index_more_new_page_items_path, notice: "商品を削除しました。"
+  end
+
+
   def show
     @item = Item.find(params[:id])
-    impressionist(@item)
+    # impressionist(@item)
     # , nil, :unique => [:session_hash]
-    @page_views = @item.impressionist_count
+    # @page_views = @item.impressionist_count
   end
 
   def index_more_new_page

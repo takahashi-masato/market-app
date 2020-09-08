@@ -4,4 +4,9 @@
   = image_tag item.image.url
 = @item.name
 = @item.price
-= "閲覧数:#{@item.impressionist_count}"
+- if user_signed_in? && current_user.id ==  @item.seller_id
+  = link_to "削除", "/items/#{@item.id}" , method: :delete , data: {confirm: "商品を削除しますか？"}
+-# = "閲覧数:#{@item.impressionist_count}"
+
+
+
