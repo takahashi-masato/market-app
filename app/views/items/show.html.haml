@@ -5,3 +5,5 @@
 = @item.name
 = @item.price
 = "閲覧数:#{@item.impressionist_count}"
+.edit
+  = link_to '編集', "/items/#{@item.id}/edit", method: :get 

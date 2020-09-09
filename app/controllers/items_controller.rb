@@ -31,6 +31,14 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
   end
 
+  def edit
+    @item = Item.find_by(id: params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+  end
 
   private
   def item_params
