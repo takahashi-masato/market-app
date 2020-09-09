@@ -9,10 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def new_identification
-    @user = User.new(sign_up_params)
-    @user.save
-    @identification = Identification.new
+  def new
+    @user = User.new
   end
   # POST /resource
   # def create
@@ -20,12 +18,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   def create
     @user = User.new(sign_up_params)
-    if @user.save
-      redirect_to root_path
-    else
-      redirect_to new_user_registration_path
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
     end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @identification = @user.build_identification
+    @deliver_address =@user.build_deliver_address
+    render :new_identification
   end
+
+  def create_identification
+    @user = User.new(session["devise.regist_data"]["user"])
+    @identification = Identification.new(identification_params)
+    @deliver_address = DeliverAddress.new(deliver_address_params)
+    unless @identification.valid? && @deliver_address.valid?
+      flash.now[:alert] = @identification.errors.full_messages
+      flash.now[:alart] = @deliver_address.errors.full_messages
+      render :new_identification and return
+    end
+    @user.build_identification(@identification.attributes)
+    @user.build_deliver_address(@deliver_address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
+
   # GET /resource/edit
   def edit
     super
@@ -52,10 +71,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def identification_params
+    params.require(:identification).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :birthday)
+  end
+
+  def deliver_address_params
+    params.require(:deliver_address).permit(:family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana,:postal_code, :prefecture, :city, :address1, :address2, :telephone)
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys:
-                 [:nickname, :family_name_kanji, :first_name_kanji, :birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:nickname, :family_name_kanji, :first_name_kanji, :family_name_kana, :first_name_kana, :birthday,
+                                                      :postal_code, :prefecture, :city, :address1, :address2, :telephone])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -69,7 +96,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    super(resource)
+    root_path
+  end
 end
