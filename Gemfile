@@ -84,4 +84,5 @@ end
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
+  gem 'responders' , '~>3.0.1'
   gem 'faker'
