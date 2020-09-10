@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user! , only: [:new]
-
+  before_action :set_item, only:[:destroy]
   def index
     @items = Item.includes(:images).order("created_at DESC")
   end
@@ -20,11 +20,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to index_more_new_page_items_path, notice: "商品を削除しました。" 
+    else
+      render :index_more_new_page, notice: "商品を削除できませんでした。" 
+    end
+  end
+
+
   def show
     @item = Item.find(params[:id])
-    impressionist(@item)
+    # impressionist(@item)
     # , nil, :unique => [:session_hash]
-    @page_views = @item.impressionist_count
+    # @page_views = @item.impressionist_count
   end
 
   def index_more_new_page
@@ -35,6 +44,9 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :category_id,:brand_name, :item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:user_id, images_attributes: [:image, :id, :_destroy])  end
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 # if @item.save
