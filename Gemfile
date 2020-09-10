@@ -77,6 +77,7 @@ end
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog-aws'
+  gem 'ancestry'
   gem 'haml-rails'
   gem 'devise'
   gem 'jquery-rails'
