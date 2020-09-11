@@ -6,7 +6,7 @@
 = @item.price
 -#= "閲覧数:#{@item.impressionist_count}"
 .edit
-  = link_to '編集', edit_item_path(@item.id), method: :get 
 - if user_signed_in? && current_user.id ==  @item.seller_id
   = link_to "削除", "/items/#{@item.id}" , method: :delete , data: {confirm: "商品を削除しますか？"}
+  = link_to '編集', edit_item_path(@item.id), method: :get 
 -# = "閲覧数:#{@item.impressionist_count}"

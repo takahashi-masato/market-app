@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user! , only: [:new]
-  before_action :set_item, only:[:destroy]
+  before_action :set_item, only:[:destroy,:edit,:update]
   def index
     @items = Item.includes(:images).order("created_at DESC")
   end
@@ -41,12 +41,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find_by(id: params[:id])
+    
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
+    
+    @item.update(item_params)
+    if @item.update
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
