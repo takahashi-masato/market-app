@@ -1,0 +1,31 @@
+%h2 お届け先住所登録
+
+= form_for @deliver_address do |f|
+  = render "devise/shared/error_messages", resource: @deliver_address
+    .field
+      = f.label :postal_code
+      %br/
+      = f.text_field :postal_code
+    .field
+      = f.label :prefecture
+      %br/
+      = f.text_field :prefecture
+    .field
+      = f.label :city
+      %br/
+      = f.text_field :city
+    .field
+      = f.label :address1
+      %br/
+      = f.text_field :address1
+    .field
+      = f.label :address2
+      %br/
+      = f.text_field :address2
+    .field
+      = f.label :telephone
+      %br/
+      = f.phone_field :telephone
+  .action
+    = f.submit "登録完了"
+= render "devise/shared/links"
