@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'identifications', to: 'users/registrations#new_identification'
     post 'identifications', to: 'users/registrations#create_identification'
+    get 'deliver_addresses', to: 'users/registrations#new_deliver_address'
+    post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
   end
 
 
