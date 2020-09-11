@@ -1,0 +1,128 @@
+.maincontents
+= form_for [@item],html: { multipart: true } do |f|
+  .maincontents_header
+    商品の情報を入力
+  .maincontents_box
+    .image_box
+      .image_box_label
+        .image_box_label_name
+          出品画像
+        .image_box_label_need
+          必須
+      .image_box_notice
+        クリックしてファイルをアップロード
+      .image_box_input
+        //=render "post"
+        = f.fields_for :images do |i|
+          = i.file_field :image, class: "hidden-field"
+    .name_box
+      .name_box_label
+        .name_box_label_name
+          商品名
+        .name_box_label_need
+          必須
+      .name_box_input
+        =f.text_field :name, placeholder: "商品名（必須４０文字まで）",required: true,class: 'name_input_area'
+    .description_box
+      .description_box_label
+        .description_box_label_name
+          商品の説明
+        .description_box_label_need
+          必須
+      .description_box_input
+        =f.text_field :description, placeholder: "商品の説明（必須、1000文字）%li(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。",required: true,class: 'description_input_area'
+  .maincontents_sub_contents_box
+    .maincontents_sub_contents_box_left
+      商品の詳細
+    .maincontents_sub_contents_box_right
+      .categoly_box
+        .categoly_box_label
+          .categoly_box_label_name
+            カテゴリー
+          .categoly_box_label_need
+            必須
+        =f.number_field :category_id,required: true
+      .item_condition_box
+        .item_condition_box_label
+          .item_condition_box_label_name
+            商品の状態
+          .item_condition_box_label_need
+            必須
+        .item_condition_box_input
+          =f.select :item_condition,[["新品", 0],["未使用に近い", 1],["使用感あり", 2],["目立つキズなどがある",3]], prompt: "ーーー",class: 'form-control',required: true
+      .brand_box
+        .brand_box_label
+          .item_condition_box_label_name
+            ブランド
+          .brand_box_label_need
+            任意
+        .brand_box_input
+          =f.text_field :brand_name, placeholder: "入力は任意です"
+  .maincontents_shipping_box
+    .maincontents_shipping_box_left
+      .maincontents_shipping_box_label
+        配送について
+      .maincontents_shipping_box_info
+    .maincontents_shipping_box_right
+      .shipping_payer_box
+        .shipping_payer_box_label
+          .shipping_payer_box_label_name
+            配送料の負担
+          .shipping_payer_box_label_need
+            必須
+        .shipping_payer_box_input
+          =f.select :shipping_payer,[["出品者負担(送料込み）", 0],["購入者負担（代引き）", 1]], {prompt: "ーーー"},class: 'form-control',required: true
+      .shipping_from_area_box
+        .shipping_from_area_box_label
+          .shipping_from_area_box_label_name
+            発送元の地域
+          .shipping_from_area_box_label_need
+            必須
+        .shipping_from_area_box_input
+          = f.collection_select :shipping_from_area, Prefecture.all, :id, :name, {prompt: "ーーー"}, {class: 'form-control',required: true}
+      .sfipping_duration_box
+        .sfipping_duration_box_label
+          .sfipping_duration_box_label_name
+            発送までの日数
+          .sfipping_duration_box_label_need
+            必須
+        .sfipping_duration_box_input
+          =f.select :shipping_duration,[["1−２日", 0],["3−４日", 1],["5-7日", 2],["一週間以上",3]], {prompt: "ーーー"},{class: 'form-control',required: true}
+
+    
+
+  .maincontents_price_box
+    .maincontents_price_box_top
+      .maincontents_price_box_top_label
+        .maincontents_price_box_top_label_1
+        販売価格
+        .maincontents_price_box_top_label_2
+        (¥300~9,999,999)
+      .maincontents_price_box_top_info
+    .maincontents_price_box_bottom
+      .item_price_box
+        .item_price_box_label
+          .item_price_box_label_name
+            価格
+          .item_price_box_label_need
+            必須
+          .item_price_box_label_en
+            ¥
+          .item_price_box_label_input
+            =f.number_field :price, placeholder: "半角数字で入力",required: true
+      .fee_box
+        .fee_box_info
+        販売手数料（10%）
+        .fee_box_cal
+      .profit_box
+        .profitbox_info
+        販売利益
+        .profitbox_cal
+
+
+  .Prohibit_box
+
+  .submit_btn
+    =f.submit '出品する',class:'sub_btn'
+  .return_btn
+    =link_to "もどる", root_path,class: 'btn btn-default'

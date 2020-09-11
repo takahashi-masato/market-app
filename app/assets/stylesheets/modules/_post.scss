@@ -1,0 +1,360 @@
+.maincontents{
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  &_header{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100px;
+  }
+  &_box{
+    height: 480px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    .image_box{
+      margin-bottom: 45px;
+      &_label{
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 12px;
+        display: flex;
+        &_name{
+          margin-right: 10px;
+        }
+        &_need{
+          width: 30px;
+          background-color: rgb(239, 54, 54);
+          color: white;
+          text-align: center;
+          
+        }
+      }
+      &_notice{
+        font-size: 12px;
+        font-weight: lighter;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      &_input{
+        font-size: 12px;
+      }
+    }
+    .name_box{
+      &_label{
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 12px;
+        display: flex;
+        &_name{
+          margin-right: 10px;
+        }
+        &_need{
+          width: 30px;
+          background-color: rgb(239, 54, 54);
+          color: white;
+          text-align: center;
+          
+        }
+      }
+      &_notice{
+        font-size: 12px;
+        font-weight: lighter;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    &_input{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      width: 100%;
+      .name_input_area{
+        height: 60px;
+        margin-right: 30px;
+        width: 80%;
+      }
+    }
+
+    }
+    .description_box{
+      &_label{
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 12px;
+        display: flex;
+        &_name{
+          margin-right: 10px;
+        }
+        &_need{
+          width: 30px;
+          background-color: rgb(239, 54, 54);
+          color: white;
+          text-align: center;
+          
+        }
+      }
+      &_notice{
+        font-size: 12px;
+        font-weight: lighter;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    &_input{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      width: 100%;
+      .description_input_area{
+        height: 150px;
+        margin-right: 30px;
+        width: 80%;
+      }
+    }
+   }
+  }
+  &_sub_contents_box{
+    height: 280px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+      &_left{
+        width: 200px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    &_right{
+      font-size: 13px;
+      font-weight: bold;
+      .categoly_box{
+        &_label{
+        margin-top: 20px;
+        display: flex;
+        margin-bottom: 20px;
+          &_name{
+            margin-right: 10px;
+          }
+          &_need{
+            width: 30px;
+            background-color: rgb(239, 54, 54);
+            color: white;
+            text-align: center;
+          }
+        }
+      }
+      .item_condition_box{
+        &_label{
+        margin-top: 20px;
+        display: flex;
+        margin-bottom: 20px;
+          &_name{
+            margin-right: 10px;
+          }
+          &_need{
+            width: 30px;
+            background-color: rgb(239, 54, 54);
+            color: white;
+            text-align: center;
+          }
+        }
+        &_input{
+          height: 50px;
+          .form-control{
+            height: 40x;
+            width: 200px;
+          }
+        }
+      }
+      .brand_box{
+        &_label{
+        margin-top: 20px;
+        display: flex;
+        margin-bottom: 20px;
+          &_name{
+            margin-right: 10px;
+          }
+          &_need{
+            width: 30px;
+            background-color: rgb(140, 140, 140);
+            color: white;
+            text-align: center;
+          }
+        }
+        &_input{
+          height: 50px;
+          .form-control{
+            height: 40x;
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  &_shipping_box{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 300px;
+    display: flex;
+    &_left{
+      width: 200px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &_right{
+      font-size: 13px;
+      font-weight: bold;
+      .shipping_payer_box{
+        &_label{
+          margin-top: 20px;
+          display: flex;
+          margin-bottom: 20px;
+            &_name{
+              margin-right: 10px;
+            }
+            &_need{
+              width: 30px;
+              background-color: rgb(239, 54, 54);
+              color: white;
+              text-align: center;
+            }
+          }
+          &_input{
+            height: 50px;
+            .form-control{
+              height: 40x;
+              width: 200px;
+            }
+          }
+        }
+        .shipping_from_area_box{
+          &_label{
+            margin-top: 20px;
+            display: flex;
+            margin-bottom: 20px;
+              &_name{
+                margin-right: 10px;
+              }
+              &_need{
+                width: 30px;
+                background-color: rgb(239, 54, 54);
+                color: white;
+                text-align: center;
+              }
+            }
+            &_input{
+              height: 50px;
+              .form-control{
+                height: 40x;
+                width: 200px;
+              }
+            }
+          }
+
+          .sfipping_duration_box{
+            &_label{
+              margin-top: 20px;
+              display: flex;
+              margin-bottom: 20px;
+                &_name{
+                  margin-right: 10px;
+                }
+                &_need{
+                  width: 30px;
+                  background-color: rgb(239, 54, 54);
+                  color: white;
+                  text-align: center;
+                }
+              }
+              &_input{
+                height: 50px;
+                .form-control{
+                  height: 40x;
+                  width: 200px;
+                }
+              }
+            }
+
+      }
+  }
+  &_price_box{
+    width: 80%;
+    margin-right: auto;
+    height: 400PX;
+    margin-left: auto;
+    &_top{
+      font-weight: bold;
+      font-size: 13px;
+    }
+    &_bottom{
+      font-size: 16px;
+      font-weight: initial;
+      margin-top: 20px;
+      margin-left: 10px;
+      .item_price_box{
+        border-style: solid;
+        border-width: 1px;
+        border-top: none;
+        border-left:none ;
+        border-right: none;
+        height: 35px;
+        &_label{
+          display: flex;
+        
+          &_need{
+            width: 32px;
+            height: 20px;
+            background-color: rgb(239, 54, 54);
+            color: white;
+            text-align: center;
+            margin-left: 10px;
+            margin-right: 20px;
+          }
+          &_input{
+            margin-left: 20px;
+          }
+        }
+      }
+      .fee_box{
+        border-style: solid;
+        border-top: none;
+        border-left:none ;
+        border-right: none;
+        height: 35px;
+        border-width: 1px;
+      }
+      .profit_box{
+        border-style: solid;
+        border-top: none;
+        border-left:none ;
+        border-right: none;
+        height: 35px;
+        border-width: 1px;
+      }
+    }
+  
+  }
+  
+}
+  .submit_btn{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    .sub_btn{
+      height: 55px;
+      width: 100%;
+      background-color: red;
+      color: white;
+      }
+  }
+  .return_btn{
+    width: 50%;
+    background-color: rgb(140, 140, 140);
+    color: white;
+    margin-left: auto;
+    margin-right:auto ;
+    text-align: center;
+
+  }
