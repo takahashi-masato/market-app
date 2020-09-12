@@ -1,5 +1,4 @@
 $(function(){
-  console.log("w")
   $(".card_delete_btn").on("click",function(){
 
     $('.js_delete_modal').fadeIn();  

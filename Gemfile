@@ -82,3 +82,5 @@ end
   gem 'erb2haml'
   gem 'payjp'
   gem "jquery-rails"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'

@@ -3,11 +3,15 @@
   height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  z-index: 1;
   .js_delete_modal__bg{
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.3);
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
   }
   .js_delete_modal__content{

@@ -1,6 +1,8 @@
 $(function() {
-  Payjp.setPublicKey('pk_test_b5dabc417590a29c092cb137');
-  
+  // const env = process.env.SECRET_KEY
+  // console.log(enb)
+  // ENV["PUBLIC_KEY"]
+  Payjp.setPublicKey("pk_test_b5dabc417590a29c092cb137");
   $("#card_new_submit").on("click",function(e){
     e.preventDefault()
     

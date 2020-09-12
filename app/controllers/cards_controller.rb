@@ -72,25 +72,28 @@ class CardsController < ApplicationController
   end
 
   def change_default_card
+    # binding.pry
     card_id = Card.find(params[:cards_table_id]) 
     customer = Payjp::Customer.retrieve(@card.customer_id) 
     customer.default_card = card_id.card_id
    
-    if customer.save
-      if URI(request.referer).path == "/cards"
-        redirect_to cards_path , notice: 'カードの変更が完了しました'
+    respond_to do |format|
+      if customer.save
+        if URI(request.referer).path == "/cards"
+          format.html {redirect_to cards_path , notice: 'カードの変更が完了しました'}
+        else
+          format.html {redirect_to items_item_path(URI(request.referer).path.gsub(/[^\d]/, "").to_i),  notice: 'カードの変更が完了しました'}
+        end
       else
-        redirect_to items_item_path(URI(request.referer).path.gsub(/[^\d]/, "").to_i),  notice: 'カードの変更が完了しました'
+        render :index
       end
-    else
-      render :index
     end
   end
 
   private
 
   def set_api_key
-    Payjp.api_key = "sk_test_2b6a107dea98c4ea8c9b5a84"
+    Payjp.api_key = ENV['SECRET_KEY']
   end
 
   def set_card_table_id

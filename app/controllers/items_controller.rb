@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
   end
 
   def set_api_key
-    Payjp.api_key = "sk_test_2b6a107dea98c4ea8c9b5a84"
+    Payjp.api_key = ENV['SECRET_KEY']
   end
 
   def set_card_table_id
