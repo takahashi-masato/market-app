@@ -8,4 +8,6 @@ class Item < ApplicationRecord
   validates :name, presence: { message: "を入力してください" }
   #validates :name,:description,:item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:seller_id, presence: true
   validates :image_ids, presence: { message: "画像を選択してください" }
+
+  
 end

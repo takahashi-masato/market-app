@@ -12,9 +12,18 @@
       .image_box_notice
         クリックしてファイルをアップロード
       .image_box_input
-        //=render "post"
-        = f.fields_for :images do |i|
-          = i.file_field :image, class: "hidden-field"
+        .post__drop__box__container
+          .prev-content
+          .label-content
+            %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+              = i.file_field :image, class: "hidden-field"
+              %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+              %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+              %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+              %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
     .name_box
       .name_box_label
         .name_box_label_name
@@ -30,7 +39,7 @@
         .description_box_label_need
           必須
       .description_box_input
-        =f.text_field :description, placeholder: "商品の説明（必須、1000文字）%li(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。",required: true,class: 'description_input_area'
+        =f.text_field :description, placeholder: "商品の説明（必須、1000文字)(色、素材、重さ、定価、注意点など)例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。",required: true,class: 'description_input_area',rows: 5
   .maincontents_sub_contents_box
     .maincontents_sub_contents_box_left
       商品の詳細
@@ -60,9 +69,10 @@
           =f.text_field :brand_name, placeholder: "入力は任意です"
   .maincontents_shipping_box
     .maincontents_shipping_box_left
-      .maincontents_shipping_box_label
+      .maincontents_shipping_box_left_label
         配送について
-      .maincontents_shipping_box_info
+      .maincontents_shipping_box_left_info
+        ?
     .maincontents_shipping_box_right
       .shipping_payer_box
         .shipping_payer_box_label
@@ -99,6 +109,7 @@
         .maincontents_price_box_top_label_2
         (¥300~9,999,999)
       .maincontents_price_box_top_info
+        ?
     .maincontents_price_box_bottom
       .item_price_box
         .item_price_box_label
@@ -109,20 +120,36 @@
           .item_price_box_label_en
             ¥
           .item_price_box_label_input
-            =f.number_field :price, placeholder: "半角数字で入力",required: true
+            =f.number_field :price, id: "price", placeholder: "半角数字で入力",required: true
+            
+            
+
+            
       .fee_box
         .fee_box_info
-        販売手数料（10%）
+          販売手数料（10%）
         .fee_box_cal
+          %input{class:"fee-cal", type: "number", name: "fee", id: "fee-cal",value:"0" }
+        .fee_box_en
+          円
       .profit_box
-        .profitbox_info
-        販売利益
-        .profitbox_cal
-
+        .profit_box_info
+          販売利益
+        .profit_box_cal
+          %input{class:"pro-cal", type: "number", name: "pro", id: "pro-cal",value:"0" }
+        .profit_box_en
+          円
+          
 
   .Prohibit_box
+    .Prohibit_box-1
+    禁止されている出品、 行為 を必ずご確認ください。
+    .Prohibit_box-2
+    またブランド品でシリアルナンバー等がある場合はご記載ください。 偽ブランドの販売 は犯罪であり処罰される可能性があります。
+    .Prohibit_box-3
+    また、出品をもちまして 加盟店規約 に同意したことになります。
 
   .submit_btn
     =f.submit '出品する',class:'sub_btn'
   .return_btn
-    =link_to "もどる", root_path,class: 'btn btn-default'
+    =link_to "もどる", root_path,class: 'r-btn'
