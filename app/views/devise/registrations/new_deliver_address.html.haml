@@ -1,31 +1,46 @@
-%h2 お届け先住所登録
+%h2 お届け先情報登録
 
 = form_for @deliver_address do |f|
   = render "devise/shared/error_messages", resource: @deliver_address
-    .field
-      = f.label :postal_code
-      %br/
-      = f.text_field :postal_code
-    .field
-      = f.label :prefecture
-      %br/
-      = f.text_field :prefecture
-    .field
-      = f.label :city
-      %br/
-      = f.text_field :city
-    .field
-      = f.label :address1
-      %br/
-      = f.text_field :address1
-    .field
-      = f.label :address2
-      %br/
-      = f.text_field :address2
-    .field
-      = f.label :telephone
-      %br/
-      = f.phone_field :telephone
+  .field
+    = f.label :お届け先の名字
+    %br/
+    = f.text_field :family_name_kanji, class: 'input-default__half'
+    = f.label :名前
+    %br/
+    = f.text_field :first_name_kanji, class: 'input-default__half'
+  .field
+    = f.label :カナ名字
+    %br/
+    = f.text_field :family_name_kana, class: 'input-default__half'
+  .field
+    = f.label :カナ名前
+    %br/
+    = f.text_field :first_name_kana, class: 'input-default__half'
+  .field
+    = f.label :郵便番号
+    %br/
+    = f.text_field :postal_code
+  .field
+    = f.label :都道府県
+    %br/
+    = f.text_field :prefecture
+  .field
+    = f.label :市町村
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :番地
+    %br/
+    = f.text_field :address1
+  .field
+    = f.label :マンションアパート名
+    %br/
+    = f.text_field :address2
+  .field
+    = f.label :電話番号
+    %br/
+    = f.phone_field :telephone
   .action
     = f.submit "登録完了"
 = render "devise/shared/links"
