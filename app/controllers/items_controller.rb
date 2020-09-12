@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user! , only: [:new]
-  before_action :set_item, only:[:destroy]
+  before_action :set_item, only:[:destroy,:edit,:update]
   def index
     @items = Item.includes(:images).order("created_at DESC")
   end
@@ -46,6 +46,21 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
   end
 
+  def edit
+    
+  end
+
+  def update
+    
+    @item.update(item_params)
+    if @item.update
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  
   def get_category_children
     @category_children = Category.find("#{params[:parent_id]}").children
   end
@@ -53,6 +68,7 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+
 
   private
   def item_params
