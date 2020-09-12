@@ -25,24 +25,37 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @identification = @user.build_identification
-    @deliver_address =@user.build_deliver_address
     render :new_identification
   end
 
   def create_identification
     @user = User.new(session["devise.regist_data"]["user"])
     @identification = Identification.new(identification_params)
-    @deliver_address = DeliverAddress.new(deliver_address_params)
-    unless @identification.valid? && @deliver_address.valid?
+    unless @identification.valid?
       flash.now[:alert] = @identification.errors.full_messages
-      flash.now[:alart] = @deliver_address.errors.full_messages
       render :new_identification and return
+    end
+    @user.build_identification(@identification.attributes)
+    session["identification"] = @identification.attributes
+    @deliver_address = @user.build_deliver_address
+    render :new_deliver_address
+
+  end
+
+  def create_deliver_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @identification = Identification.new(session["identification"])
+    @deliver_address = DeliverAddress.new(deliver_address_params)
+    unless @deliver_address.valid?
+      flash.now[:alert] = @deliver_address.errors.full_messages
+      render :new_deliver_address and return
     end
     @user.build_identification(@identification.attributes)
     @user.build_deliver_address(@deliver_address.attributes)
     @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
+    render :create_identification
   end
 
   # GET /resource/edit
