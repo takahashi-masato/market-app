@@ -30,10 +30,10 @@
         =f.number_field :price, placeholder: "数字を入力",required: true
     #h1.item_form_categoly_id
       #h2.item_form_top_info
-        .item_form_label カテゴリID
+        .item_form_label カテゴリー
         .item_form_needs 必須
-      .input_area
-        =f.number_field :category_id,required: true
+      .input_area#category_area
+        = f.select :category_id, @category_parent_array,{prompt: "選択してください"}, {required: true, class: 'category'}
     #h1.item_form_description
       #h2.item_form_top_info
         .item_form_label 説明
