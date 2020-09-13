@@ -1,24 +1,10 @@
-= form_with model: @item, local: true  do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :description
-  = f.text_area :description
-  = f.label :brand_name
-  = f.text_field :brand_name
-  = f.label :item_condition
-  = f.text_field :item_condition
-  = f.label :shipping_payer
-  = f.text_field :shipping_payer
-  = f.label :shipping_from_area
-  = f.text_field :shipping_from_area
-  = f.label :shipping_duration
-  = f.text_field :shipping_duration
-  = f.label :price
-  = f.text_area  :price
-  = f.fields_for :images do |image|
-    = image.label :image
-    = image.file_field :image
-  = f.hidden_field :buy_status, value: 0  
-  = f.submit
+.wrapper 
+  .headder
+    .icon
+      = link_to root_path do
+        = image_tag 'material/logo/logo.png', class: "mainIcon",  size: "180x55"
+  .form
+    = render 'post' 
+  .footer
+    = render 'footer_sub'
 
-  -# , multiple: true ,  type: 'file' ,name: "images[image][]"

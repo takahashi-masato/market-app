@@ -1,0 +1,75 @@
+.item_form
+  = form_for [@item],html: { multipart: true } do |f|
+    #h1.item_form_image
+      #h2.item_form_top_info
+        .item_form_label 商品画像
+        .item_form_needs 必須
+      .post__drop__box__container
+        .prev-content
+        .label-content
+          %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+            %pre.label-box__text-visible クリックしてファイルをアップロード
+        .hidden-content
+          = f.fields_for :images do |i|
+            = i.file_field :image, class: "hidden-field"
+            %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+            %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+            %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+            %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+    #h1.item_form_name
+      #h2.item_form_top_info
+        .item_form_label 商品名
+        .item_form_needs 必須
+      .input_area
+        =f.text_field :name, placeholder: "40文字以内",required: true
+    #h1.item_form_price
+      #h2.item_form_top_info
+        .item_form_label 価格
+        .item_form_needs 必須
+      .input_area
+        =f.number_field :price, placeholder: "数字を入力",required: true
+    #h1.item_form_categoly_id
+      #h2.item_form_top_info
+        .item_form_label カテゴリー
+        .item_form_needs 必須
+      .input_area#category_area
+        = f.select :category_id, @category_parent_array,{prompt: "選択してください"}, {required: true, class: 'category'}
+    #h1.item_form_description
+      #h2.item_form_top_info
+        .item_form_label 説明
+        .item_form_needs 必須
+      .input_area
+        =f.text_field :description, placeholder: "1000文字以内",required: true
+    #h1.item_form_brand
+      #h2.item_form_top_info
+        .item_form_label ブランド
+        .item_form_dont-need 任意
+      .input_area
+        =f.text_field :brand_name, placeholder: "入力は任意です"
+    #h1.item_form_item_condition
+      #h2.item_form_top_info
+        .item_form_label 状態
+        .item_form_needs 必須
+      .input_area
+        =f.select :item_condition,[["新品", 0],["未使用に近い", 1],["使用感あり", 2],["目立つキズなどがある",3]], prompt: "選択してください",class: 'form-control',required: true
+    #h1.item_form_shipping_payer
+      #h2.item_form_top_info
+        .item_form_label 送料
+        .item_form_needs 必須
+      .input_area
+        =f.select :shipping_payer,[["出品者負担(送料込み）", 0],["購入者負担（代引き）", 1]], prompt: "選択してください",class: 'form-control',required: true
+    #h1.item_form_shipping_from_area
+      #h2.item_form_top_info
+        .item_form_label 発送元
+        .item_form_needs 必須
+      .input_area
+        = f.collection_select :shipping_from_area, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: 'form-control',required: true}
+    #h1.item_form_shipping_duration
+      #h2.item_form_top_info
+        .item_form_label 発送期間
+        .item_form_needs 必須
+      .input_area
+        =f.select :shipping_duration,[["1−２日", 0],["3−４日", 1],["5-7日", 2],["一週間以上",3]], {prompt: "選択してください"},{class: 'form-control',required: true}
+    #h1.item_form_submit_btn
+      .input_area
+        =f.submit '出品する'

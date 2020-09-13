@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items,foreign_key: :seller_id, dependent: :destroy
   belongs_to :card
-  has_many :items
+
+  validates :name, presence: true, uniqueness: true
+  
+
 end
