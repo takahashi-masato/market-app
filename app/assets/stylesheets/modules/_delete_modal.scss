@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   z-index: 1;
-  .js_delete_modal__bg{
+  &__bg{
     background: rgba(0,0,0,0.3);
     height: 100vh;
     position: fixed;
@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
   }
-  .js_delete_modal__content{
+  &__content{
     background: #fff;
     left: 50%;
     position: absolute;
@@ -24,7 +24,7 @@
     height: 40%;;
     text-align: center;
     border-radius: 6px;
-    .js_delete_modal__content--text{
+    &--text{
       box-sizing: border-box;
       padding: 60px;
       height: 75%;

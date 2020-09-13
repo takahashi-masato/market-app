@@ -72,7 +72,6 @@ class CardsController < ApplicationController
   end
 
   def change_default_card
-    # binding.pry
     card_id = Card.find(params[:cards_table_id]) 
     customer = Payjp::Customer.retrieve(@card.customer_id) 
     customer.default_card = card_id.card_id

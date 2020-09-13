@@ -13,7 +13,7 @@
   max-width: 600px;
   height: 100vh;
   margin: 0 auto;
-  .cardList__data{
+  &__data{
     width: 100%;
     height: 200px;
     display: flex;
@@ -21,19 +21,16 @@
     padding: 0 20px;
     border-bottom:rgb(201, 197, 197) solid 1px;
     position: relative;
-    .cardList__data--checkbox {
+    &--checkbox {
       margin-right: 20px;
     }
-    .cardList__data--deleteBtn{
+    &--deleteBtn{
       height: 30px;
       width: 80px;
       border: red solid 1px;
       border-radius: 5px;
       float: right;
       margin-left: 200px;
-      // position: absolute;
-      // top: 50%;
-      // right: 30px;
       a.card_delete_btn{
         text-decoration: none;
         color: red;
@@ -47,14 +44,14 @@
       }
     }
   }
-  .cardList__links--new{
+  &__links--new{
     text-align: center;
     a{
       text-decoration: none;
       color: rgb(113, 196, 230);
     }
   }
-  .cardList__links--cardChange{
+  &__links--cardChange{
     margin: 30px 0 100px 0;
     text-align: center;
     #default_card_submitBtn{
@@ -82,50 +79,3 @@
   }
 }
 
-
-
-// input[type=checkbox]{
-//   display: none;
-// }
-
-// .checkbox {
-//   box-sizing: border-box;
-//   cursor: pointer;
-//   display: inline-block;
-//   padding: 5px 30px;
-//   position: relative;
-//   width: auto;
-// }
-// .checkbox::before {
-//   background: #fff;
-//   border: 1px solid #ccc;
-//   border-radius: 3px;
-//   content: '';
-//   display: block;
-//   height: 16px;
-//   left: 5px;
-//   margin-top: -8px;
-//   position: absolute;
-//   top: 50%;
-//   width: 16px;
-// }
-// .checkbox::after {
-//   border-right: 6px solid #00cccc;
-//   border-bottom: 3px solid #00cccc;
-//   content: '';
-//   display: block;
-//   height: 20px;
-//   left: 7px;
-//   margin-top: -16px;
-//   opacity: 0;
-//   position: absolute;
-//   top: 50%;
-//   transform: rotate(45deg);
-//   width: 9px;
-// }
-// input[type=checkbox] + .checkbox::before {
-//   border-color: #666;
-// }
-// input[type=checkbox] + .checkbox::after {
-//   opacity: 1;
-// }
