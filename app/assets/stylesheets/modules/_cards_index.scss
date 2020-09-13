@@ -1,0 +1,81 @@
+.cardListTitle{
+  max-width: 600px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  h2{
+    font-weight: bold;
+    font-size: 20px;
+  }  
+}
+
+.cardList{
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  &__data{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom:rgb(201, 197, 197) solid 1px;
+    position: relative;
+    &--checkbox {
+      margin-right: 20px;
+    }
+    &--deleteBtn{
+      height: 30px;
+      width: 80px;
+      border: red solid 1px;
+      border-radius: 5px;
+      float: right;
+      margin-left: 200px;
+      a.card_delete_btn{
+        text-decoration: none;
+        color: red;
+        display: block;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+    }
+  }
+  &__links--new{
+    text-align: center;
+    a{
+      text-decoration: none;
+      color: rgb(113, 196, 230);
+    }
+  }
+  &__links--cardChange{
+    margin: 30px 0 100px 0;
+    text-align: center;
+    #default_card_submitBtn{
+      cursor: pointer;
+      display: inline;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: red;
+      border-radius: 5px;
+      padding:10px 20px;
+      border: none;
+      transition: all 0.3s ease 0s;
+      
+    }
+  }
+}
+
+.cardListReturnLink{
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  a{
+    text-decoration: none;
+  }
+}
+

@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
+  gem "jquery-rails"
   gem 'factory_bot_rails'
 end
 
@@ -85,5 +86,7 @@ end
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
+  gem 'payjp'
   gem 'responders' , '~>3.0.1'
   gem 'faker'
+

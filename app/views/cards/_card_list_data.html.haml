@@ -1,0 +1,26 @@
+.cardList
+  - if cards.present?
+    = form_with url:cards_path ,local: true, id:"default_card_changeForm" do |f|
+      - cards.zip(cards_id).each do |card, id|
+        = render partial: 'cards/delete_modal',locals:{id: id}
+        .cardList__data{data:{id: id.id }}
+          .cardList__data--checkbox            
+            - if card.id == @customer.default_card
+              = f.check_box :card_id ,{checked: true} ,"true"
+              -# = f.label :card_id ,class: "checkbox"
+            - else
+              = f.check_box :card_id ,{},"false"    
+
+          = render partial: "cards/card_data", locals:{card: card}
+          
+          - if back_url == "/users/#{current_user.id}"  or  back_url == "/cards"
+            .cardList__data--deleteBtn 
+              = link_to "削除する", "#" , class: "card_delete_btn"
+
+      .cardList__links
+        .cardList__links--new
+          = link_to '新しいカードを追加する', new_card_path(back_url: back_url)   
+        .cardList__links--cardChange 
+          = f.submit "選択したお支払い方法を使う", id:"default_card_submitBtn"
+  - else
+    = link_to 'クレジットカード登録', new_card_path

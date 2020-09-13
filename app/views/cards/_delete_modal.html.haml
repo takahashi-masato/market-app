@@ -1,0 +1,11 @@
+.js_delete_modal
+  .js_delete_modal__bg
+  .js_delete_modal__content
+    .js_delete_modal__content--text
+      %h2.js_delete_title 削除
+      %h3.js_delete_explanation このカード情報を削除しますか？
+    .js_delete_select
+      .select__cansel
+        = link_to"キャンセル", "#" , class: "js_cancel_btn" 
+      .select__delete
+        = link_to "削除する", "/cards/#{id.id}" ,method: :delete , class: "js_card_delete_btn"
