@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       get 'index_more_new_page'
       get 'done_page'
       post 'pay/id:'=> 'items#pay', as: 'pay'
-      post 'pay/:id'=> 'items#pay', as: 'pay'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end

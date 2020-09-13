@@ -119,12 +119,9 @@ class ItemsController < ApplicationController
 
   def set_card_table_id
     @card = Card.find_by(user_id: current_user.id)
+  end
 
- 
-
-
-
-
+end
 # if @item.save
 #   params[:images]['image'].each do |a|
 #     @item_image = @item.images.create!(image: a)
