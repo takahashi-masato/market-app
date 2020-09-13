@@ -52,11 +52,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|payment_card_no|string|null:false|
-|payment_card_expire_mm|integer|null: false|
-|payment_card_expire_yy|integer|null: false|
-|payment_card_security_code|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null:false|
+|card_token|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -74,7 +72,8 @@
 |shipping_from_area|string|null:false|
 |shipping_duration|string|null:false|
 |price|string|null:false|
-|user_id|integer|null:false, foreign_key: true|
+|seller_id|integer|null:false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 
 ### Association
 - belongs_to :user

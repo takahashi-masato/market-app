@@ -1,7 +1,13 @@
-@import 'reset';
-@import 'modules/all';
+@import "reset";
+@import "modules/all";
+@import "modules/user";
+@import "new";
+@import "modules/form";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/footer_sub";
+@import "modules/post";
 @import 'modules/top';
-@import 'modules/header';
 @import 'modules/exhibit_btn';
 @import 'modules/items_picup';
 @import 'modules/pagenate';
@@ -11,3 +17,5 @@
 @import 'modules/delete_modal';
 @import 'modules/cards_index';
 @import 'notifications';
+@import 'modules/alert';
+

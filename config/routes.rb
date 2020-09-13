@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       patch 'cards', to:'cards#change_default_card'
     end
   end
-  resources :users , only: [:show]
+  resources :users 
+
   resources :items do
     resources :images
     member do
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
       get 'index_more_new_page'
       get 'done_page'
       post 'pay/:id'=> 'items#pay', as: 'pay'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+
     end
   end
    

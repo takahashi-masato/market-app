@@ -1,0 +1,6 @@
+.content
+  =item.name
+  =item.price
+  =item.images.each do |image|
+    = image_tag image.url.url
+  %end

@@ -46,6 +46,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -75,8 +77,11 @@ end
   gem 'carrierwave'
   gem 'mini_magick'
   gem 'fog-aws'
+  gem 'ancestry'
   gem 'haml-rails'
   gem 'devise'
+  gem 'jquery-rails'
+  gem 'active_hash'
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
@@ -84,3 +89,6 @@ end
   gem "jquery-rails"
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'responders' , '~>3.0.1'
+  gem 'faker'
+
