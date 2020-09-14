@@ -113,7 +113,6 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
-
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erb2haml (0.1.5)
@@ -381,7 +380,6 @@ DEPENDENCIES
   erb2haml
   factory_bot_rails
   faker
-
   fog-aws
   haml-rails
   impressionist (~> 1.6.1)
