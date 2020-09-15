@@ -127,6 +127,8 @@ GEM
     factory_bot_rails (6.0.0)
       factory_bot (~> 6.0.0)
       railties (>= 5.0.0)
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     fog-aws (3.6.6)
       fog-core (~> 2.1)
@@ -370,6 +372,7 @@ DEPENDENCIES
   devise-i18n-views
   erb2haml
   factory_bot_rails
+  faker (~> 2.8)
   fog-aws
   haml-rails
   impressionist (~> 1.6.1)
