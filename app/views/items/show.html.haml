@@ -85,9 +85,9 @@
     .bottom_comments
       .select_box
         .select_box_left
-          前の商品
+          = link_to "前の商品", item_path(@item.previous), class: "btn_arrow_back"
         .select_box_right
-          次の商品
+          = link_to "次の商品", item_path(@item.next), class: "btn_arrow_back"
       .more_categoly
         カテゴリーの商品をもっと見る
       
