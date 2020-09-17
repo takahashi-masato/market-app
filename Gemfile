@@ -47,7 +47,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
-  gem "jquery-rails"
   gem 'factory_bot_rails'
 end
 
