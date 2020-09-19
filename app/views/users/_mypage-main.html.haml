@@ -1,0 +1,62 @@
+.l-content
+  .mypage-main
+    .mypage-main-head
+      %h2 出品済みアイテム一覧
+    .mypage-main-moreBtn
+      = link_to "もっと見る >", index_more_new_page_items_path ,class:"mypage-btn"
+    .mypage-main-list
+      - @items.each do |item| 
+        = link_to item_path(item.id) ,  class: "mypage-main-list__products--data" do
+          .dataImage
+            - item.images.each do |item_image|
+              = image_tag item_image.image.url  ,width: "100%",height:"80%"
+          .dataInfo
+            .dataInfo--name
+              = item.name
+            .dataInfo--price
+              = "#{item.price}円"
+              %p (税込)
+  .mypage-main
+    .mypage-main-head
+      %h2 購入済みアイテム一覧
+    .mypage-main-list
+      - @items.each do |item| 
+        = link_to item_path(item.id) ,  class: "mypage-main-list__products--data" do
+          .dataImage
+            - item.images.each do |item_image|
+              = image_tag item_image.image.url  ,width: "100%",height:"80%"
+          .dataInfo
+            .dataInfo--name
+              = item.name
+            .dataInfo--price
+              = "#{item.price}円"
+              %p (税込)
+
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  -# .newItemList__products
+  -# 
+  -# %section.mypage-main-conteiner
+  -#   %h2.mypage-main-title
+  -#     商品
+  -#     %a.mypage-main-subtitle
+  -#       もっとみる
+  -#       %ul.mypage-tabs
+  -#         %li.mypage-tab
+

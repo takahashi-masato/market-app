@@ -1,0 +1,20 @@
+.nav ul {
+  list-style: none;
+}
+
+li{
+  border-top: 10px solid #fff;
+}
+
+.l-conteiner{
+  height: 100vh;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}

@@ -1,0 +1,25 @@
+.l-side
+  %nav.mypage-nav
+    %ul.mypage-nav-list
+      %li
+        %a.mypage-nav-list-item
+          お気に入りの商品
+      %h3.mypage-nav-head
+        設定
+      %li
+        %a.mypage-nav-list-item
+          ニックネーム・メールアドレスの変更
+      %li
+        %a.mypage-nav-list-item
+          登録名の変更
+      %li
+        %a.mypage-nav-list-item
+          発送元・お届け先住所の変更
+      %li
+        = link_to "ログアウト" , destroy_user_session_path, method: :delete,class:"mypage-nav-list-item"
+      %li
+        %a.mypage-nav-list-item
+          クレジットカード情報登録・確認・削除
+      %li
+        = link_to"トップページ" ,root_path, class:"mypage-nav-list-item"
+      

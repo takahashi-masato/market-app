@@ -1,0 +1,43 @@
+.l-content{
+  padding-bottom: 40px;
+  float: right;
+  width: 800px;
+  
+  .mypage-main{
+    background-color: #eee;
+    margin-bottom: 20px;
+    &-head{
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 25px;
+      color: #3CCACE;
+    }
+    &-moreBtn{
+      text-align: center;
+      .mypage-btn{
+        color: black;
+        text-decoration: none;
+      }
+    }
+    &-list{
+      display: flex;
+      justify-content: center;
+      &__products--data{
+        box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+        width: 200px;
+        height: 250px;
+        background-color: white;
+        padding: 10px 10px 0 10px;
+        margin-right: 25px;
+        margin-bottom: 30px;
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        transition: all 0.3s 
+      }
+    }
+  }
+}  
+
