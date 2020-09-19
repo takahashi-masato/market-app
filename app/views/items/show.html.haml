@@ -10,7 +10,7 @@
           .item_edit
             = link_to "編集", edit_item_path(@item),class:'edit_btn'
           .item_delet
-            削除
+            = link_to "削除", "/items/#{@item.id}" , method: :delete , data: {confirm: "商品を削除しますか？"}
         - else
           .none
             別ユーザーの出品
