@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    
     @item.update(item_params)
     if @item.update
       redirect_to root_path
@@ -69,7 +68,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @customer = Payjp::Customer.retrieve(@card.customer_id) 
     @default_card = @customer.cards.retrieve(@customer.default_card)
-    
   end
 
   def pay
@@ -85,7 +83,6 @@ class ItemsController < ApplicationController
     @item.update( buy_status: 1 ,buyer_id: current_user.id )
     redirect_to done_page_items_path
   end
-
 
   def done_page
   end
@@ -105,8 +102,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-
-    params.require(:item).permit(:name,:description,:brand_name,:item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:buy_status,:image_id,images_attributes:[:id,:image,:item_id,:_destroy]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:description,:brand_name,:item_condition,:shipping_payer,:shipping_from_area,:shipping_duration,:price,:buy_status,:image_id,:category_id,images_attributes:[:id,:image,:item_id,:_destroy])
+    # .merge(seller_id: current_user.id)
   end
   
   def set_item

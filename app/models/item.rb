@@ -4,7 +4,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :seller, class_name: 'User', foreign_key: :seller_id
   #sellerでクラスを指定。値を取り出す場合はここを使う。
-  belongs_to :user
 
   is_impressionable
   validates :name, presence: { message: "を入力してください" }

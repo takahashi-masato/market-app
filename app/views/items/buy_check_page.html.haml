@@ -10,8 +10,7 @@
     = render partial: "cards/card_data", locals:{card: @default_card}
   .buyCheckPage__card--change
     = link_to "支払い方法を変更する", cards_path
-= form_with url: pay_items_path(@item.id), local: true do |f|
-  = f.submit "購入する"
-
-
-  -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b5dabc417590a29c092cb137"}
+.buyCheckPage__buyBtn
+  = link_to "購入する", pay_item_path, method: :post
+-# = form_with url: pay_items_path(@item.id), local: true do |f|
+-#   = f.submit "購入する"

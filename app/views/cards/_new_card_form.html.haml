@@ -3,7 +3,7 @@
     %p1 カード番号
     %p1.required_text 必須
   .cardNum__form
-    = f.text_field :card_number, placeholder: '半角数字のみ',id:"card_num_input",class:"card_num_input",maxlength: "12"
+    = f.text_field :card_number, placeholder: '半角数字のみ',id:"card_num_input",class:"card_num_input",maxlength: "16"
   .cardNum__image
     = image_tag "mc_vrt_opt_pos_73_3x.png", size: "50x40"
     = image_tag "logo_visa.gif" , size: "50x40"
