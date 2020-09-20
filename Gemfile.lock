@@ -372,7 +372,7 @@ DEPENDENCIES
   devise-i18n-views
   erb2haml
   factory_bot_rails
-  faker (~> 2.8)
+  faker
   fog-aws
   haml-rails
   impressionist (~> 1.6.1)
