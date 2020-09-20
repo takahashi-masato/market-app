@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   
   
   def index
-    @items = Item.includes(:images).order("created_at DESC")
   end
 
   def new
@@ -59,9 +58,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def index_more_new_page
-    @items = Item.includes(:images).order("created_at DESC").page(params[:page]).per(12)
-  end
 
 #   購入機能--------------------------------------------------------------------
   def buy_check_page
