@@ -9,7 +9,6 @@ class CardsController < ApplicationController
     if params[:url].present?
       @back_url = params[:url]
     end
-
     if @card.present?
       @customer = Payjp::Customer.retrieve(@card.customer_id)
       @cards = @customer.cards.all

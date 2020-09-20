@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-  has_one :user
+  belongs_to :user
 
   validates :card_id, presence: true
   validates :customer_id, presence: true

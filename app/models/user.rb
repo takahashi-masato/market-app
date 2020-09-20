@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items,foreign_key: :seller_id, dependent: :destroy
-  belongs_to :card
+  has_many :cards
 
   validates :name, presence: true, uniqueness: true
   
