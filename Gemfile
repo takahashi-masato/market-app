@@ -48,6 +48,9 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+
 end
 
 group :development do
@@ -87,5 +90,7 @@ end
   gem 'erb2haml'
   gem 'payjp'
   gem 'responders' , '~>3.0.1'
-  gem 'faker'
+  gem 'devise-i18n'
+  gem 'devise-i18n-views'
+
 

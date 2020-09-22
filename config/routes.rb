@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
+}
+
+  devise_scope :user do
+    get 'identifications', to: 'users/registrations#new_identification'
+    post 'identifications', to: 'users/registrations#create_identification'
+    get 'deliver_addresses', to: 'users/registrations#new_deliver_address'
+    post 'deliver_addresses', to: 'users/registrations#create_deliver_address'
+  end
+
+
   root 'items#index'
   resources :cards , only: [:index,:new,:create,:destroy] do 
     collection do
@@ -24,5 +36,4 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-   
 end

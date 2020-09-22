@@ -1,0 +1,27 @@
+%h2 本人確認情報
+
+= form_for @identification do |f|
+  = render "devise/shared/error_messages", resource: @identification
+  .field
+    = f.label :名字
+    %br/
+    = f.text_field :family_name_kanji, class: 'input-default__half'
+    = f.label :名前
+    %br/
+    = f.text_field :first_name_kanji, class: 'input-default__half'
+  .field
+    = f.label :名字カナ
+    %br/
+    = f.text_field :family_name_kana, class: 'input-default__half'
+  .field
+    = f.label :名前カナ
+    %br/
+    = f.text_field :first_name_kana, class: 'input-default__half'
+  .feild
+    = f.label :誕生日
+    %br/
+    = f.date_field :birthday
+  .actions
+    = f.submit "Next"
+= render "devise/shared/links"
+

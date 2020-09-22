@@ -1,0 +1,2 @@
+class IdentificationsController < ApplicationController
+end
