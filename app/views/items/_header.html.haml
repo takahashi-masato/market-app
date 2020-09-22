@@ -18,7 +18,9 @@
         .li
           = link_to "ログアウト" , destroy_user_session_path, method: :delete ,class: "userLink--left"
         .li
-          = link_to "マイページ", new_user_registration_path ,class: "userLink--right"
+
+          = link_to "マイページ", "/users/#{current_user.id}" ,class: "userLink--right"
+
       - else
         .li
           = link_to "ログイン" , new_user_session_path,class: "userLink--left"

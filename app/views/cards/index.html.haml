@@ -1,0 +1,11 @@
+= render 'items/header'
+
+.cardListTitle
+  %h2 支払い方法
+
+= render partial: 'card_list_data' ,locals: {cards: @cards , cards_id: @cards_id,back_url: @back_url}
+
+-# マイページ、もしくは削除後のindex遷都以外の場合はもどるを表示
+.cardListReturnLink
+  - if @back_url != "/cards" && @back_url != "/users/#{current_user.id}" 
+    = link_to "もどる", @back_url

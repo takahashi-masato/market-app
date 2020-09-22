@@ -1,0 +1,20 @@
+.cardList__data--main
+  .data--brand
+    - if card.brand == "MasterCard"
+      = image_tag "mc_vrt_opt_pos_73_3x.png", size: "100x80"
+    - elsif card.brand == "Visa" 
+      = image_tag "logo_visa.gif" , size: "100x80"
+    - elsif card.brand == "JCB" 
+      = image_tag "https://www.jcb.co.jp/logomark/jcb_images/jcb-logomark-img-03.gif" , size: "100x80"
+    - elsif card.brand == "American Express"
+      = image_tag "https://www.jcb.co.jp/logomark/jcb_images/amex-logomark-img-06.gif" , size: "100x80"
+    - elsif card.brand == "Diners Club"
+      = image_tag "https://www.jcb.co.jp/logomark/jcb_images/diners-logomark-img-03.gif" , size: "100x80"
+    - elsif card.brand == "Discover"
+      = image_tag "https://www.jcb.co.jp/logomark/jcb_images/discover-logomark-img-06.gif" , size: "100x80"
+    - else
+      = card.brand
+  .data--num
+    = "**** **** ****#{card.last4}" 
+  .data--expirationData
+    = "有効期限：#{card.exp_month}/#{card.exp_year.to_s.slice(2,3)}"    
