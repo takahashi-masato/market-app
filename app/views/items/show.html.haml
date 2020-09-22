@@ -1,0 +1,7 @@
+%h2 商品詳細
+
+- @item.images.each do |item|
+  = image_tag item.image.url
+= @item.name
+= @item.price
+= "閲覧数:#{@item.impressionist_count}"
