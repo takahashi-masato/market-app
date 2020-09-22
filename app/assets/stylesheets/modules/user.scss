@@ -18,12 +18,17 @@
       }
     }
     &__flashContents {
-
+      font-size: 13px;
+      margin-left: 15px;
+      color: red;
     }
     &__group {
       width: 50%;
       margin: 0 auto;
       padding-top: 20px;
+      p {
+        text-align: center;
+      }
       &--label {
         height: 24px;
         .label{
@@ -32,6 +37,15 @@
         }
         .indispensable {
           background: #ea352d;
+          border-radius: 2px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 3px;
+          margin-left: 8px;
+        }
+        .arbitrary {
+          background: #cccccc;
           border-radius: 2px;
           color: #ffffff;
           font-size: 12px;
@@ -62,6 +76,9 @@
         border: solid 1px #ea352d;
         color: #ffffff;
         font-size: 14px;
+        line-height: 50px;
+        display: block;
+        margin: 0 auto;
       }
     }
   }
