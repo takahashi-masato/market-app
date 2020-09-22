@@ -1,0 +1,16 @@
+%h2 商品詳細
+
+- @item.images.each do |item|
+  = image_tag item.image.url
+= @item.price
+.buyCheckPage__card
+  .buyCheckPage__card--title
+    %h2 支払い方法
+  .buyCheckPage__card--data
+    = render partial: "cards/card_data", locals:{card: @default_card}
+  .buyCheckPage__card--change
+    = link_to "支払い方法を変更する", cards_path
+.buyCheckPage__buyBtn
+  = link_to "購入する", pay_item_path, method: :post
+-# = form_with url: pay_items_path(@item.id), local: true do |f|
+-#   = f.submit "購入する"

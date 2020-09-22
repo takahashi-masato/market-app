@@ -1,0 +1,90 @@
+.cardNewForm{
+  max-width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  &__title{
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    h1{
+      font-weight: bold;
+    }
+  }
+  &__input{
+    width: 100%;
+    height: 100%;
+    padding: 0 100px;
+    margin-top: 50px;
+    &--cardNum{
+      width: 400px;
+      .cardNum__title{
+        margin-bottom: 10px;
+      }
+      .cardNum__form{
+        .card_num_input{
+          width: 400px;
+          height: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+    &--expirationDate {
+      margin-top: 30px;
+      .expirationDate__title{
+        margin-bottom: 10px;
+      }
+      .expirationDate__select{
+        .exp_month_input{
+          width: 150px;
+          height: 50px;
+          border-radius: 5px;
+        }
+        .exp_year_input{
+          width: 150px;
+          height: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+    &--cvc{
+      margin-top: 30px;
+      .cvc__title{
+        margin-bottom: 10px;
+      }
+      .cvc__form{
+        .cvc_input{
+          width: 400px;
+          height: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+    &--submit{
+      margin-top: 50px;
+      .card_new_submit{
+        width: 400px;
+        background-color: rgb(233, 41, 41);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        height: 50px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+p1{
+  font-size: 13px;
+  font-weight: bold;
+}
+p1.required_text{
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  padding: 4px;
+}

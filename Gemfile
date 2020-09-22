@@ -50,6 +50,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
+
 end
 
 group :development do
@@ -87,6 +88,9 @@ end
   gem 'impressionist', '~>1.6.1'
   gem 'kaminari'
   gem 'erb2haml'
+  gem 'payjp'
   gem 'responders' , '~>3.0.1'
   gem 'devise-i18n'
   gem 'devise-i18n-views'
+
+

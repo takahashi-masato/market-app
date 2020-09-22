@@ -1,7 +1,10 @@
 .wrapper 
-  
-  =render 'header'
-  
-  = render 'form' 
+  .headder
+    .icon
+      = link_to root_path do
+        = image_tag 'material/logo/logo.png', class: "mainIcon",  size: "180x55"
+  .form
+    = render 'post' 
+  .footer
+    = render 'footer_sub'
 
-  = render 'footer'

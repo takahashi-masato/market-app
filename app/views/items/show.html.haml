@@ -1,7 +1,97 @@
-%h2 商品詳細
-
-- @item.images.each do |item|
-  = image_tag item.image.url
-= @item.name
-= @item.price
-= "閲覧数:#{@item.impressionist_count}"
+.wrapper
+  .header
+    =render "header"
+  .main
+    .main_contents
+      .main_contents_name
+        = @item.name
+        = link_to  "購入する", buy_check_page_item_path
+      .main_contents_check
+        - if user_signed_in? && @item.seller_id == current_user.id
+          .item_edit
+            = link_to "編集", edit_item_path(@item),class:'edit_btn'
+          .item_delet
+            = link_to "削除", "/items/#{@item.id}" , method: :delete , data: {confirm: "商品を削除しますか？"}
+        - else
+          .none
+            別ユーザーの出品
+      .main_contents_image
+        - if @item.buy_status == 1
+          .ItemDetail__data--image
+            - @item.images.each do |item|
+              = image_tag item.image.url
+            .sold_out_image 
+            .sold_out_text SOLD
+          .ItemDetail__data 
+            .ItemDetail__data_count
+              = "閲覧数:#{@item.impressionist_count}"
+            .ItemDetail__data_buy
+              %h1 売り切れました
+        - else
+          .ItemDetail__data--image
+          - @item.images.each do |item|
+            = image_tag item.image.url
+          .ItemDetail__data
+            - unless user_signed_in? && @item.seller_id == current_user.id
+              .ItemDetail__data_count
+                = "閲覧数:#{@item.impressionist_count}"
+              .ItemDetail__data_buy
+                = link_to "購入画面に進む", buy_check_page_item_path, class:'buy_btn'
+            - else
+              .no
+                自分の出品
+      .main_contents_price
+        .main_contents_price_en
+          ¥
+        .main_contents_price_info
+          = @item.price
+        .main_contents_price_info
+          (税込み)
+        
+      .main_contents_item_description
+        = @item.description
+        
+      .main_contents_info_box
+        .main_contents_info_box_user
+          .main_contents_label_top
+            出品者
+          .main_contents_info_top
+            = @item.name
+        .main_contents_info_box_categoly
+          .main_contents_label
+            カテゴリー
+          .main_contents_info
+            = @item.category_id
+        .main_contents_info_box_shipping_payer
+          .main_contents_label
+            送料
+          .main_contents_info
+            = @item.shipping_payer
+        .main_contents_info_box_shipping_from_area
+          .main_contents_label
+            発送元
+          .main_contents_info
+            = @item.shipping_from_area
+        .main_contents_info_box_shipping_duration
+          .main_contents_label_bottom
+            発送までの期間
+          .main_contents_info_bottom
+            = @item.shipping_duration
+    .sub_contents
+      .sub_contents_like
+        お気に入り
+      .sub_contents_siren
+        通報
+    .comment_box
+      コメントボックス仮置き
+    .bottom_comments
+      .select_box
+        .select_box_left
+          = link_to "前の商品", item_path(@item.previous), class: "btn_arrow_back"
+        .select_box_right
+          = link_to "次の商品", item_path(@item.next), class: "btn_arrow_back"
+      .more_categoly
+        カテゴリーの商品をもっと見る
+      
+    .footer
+      =render "footer"

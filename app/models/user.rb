@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_one :identification
   has_one :deliver_address
   has_many :items,foreign_key: :seller_id, dependent: :destroy
@@ -15,5 +16,9 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*\z/
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
 
+  has_many :items,foreign_key: :seller_id, dependent: :destroy
+  has_many :cards
+
+  
 
 end

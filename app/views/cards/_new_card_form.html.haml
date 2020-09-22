@@ -1,0 +1,36 @@
+.cardNewForm__input--cardNum
+  .cardNum__title
+    %p1 カード番号
+    %p1.required_text 必須
+  .cardNum__form
+    = f.text_field :card_number, placeholder: '半角数字のみ',id:"card_num_input",class:"card_num_input",maxlength: "16"
+  .cardNum__image
+    = image_tag "mc_vrt_opt_pos_73_3x.png", size: "50x40"
+    = image_tag "logo_visa.gif" , size: "50x40"
+    = image_tag "https://www.jcb.co.jp/logomark/jcb_images/jcb-logomark-img-03.gif" , size: "50x40"
+    = image_tag "https://www.jcb.co.jp/logomark/jcb_images/amex-logomark-img-06.gif" , size: "50x40"
+    = image_tag "https://www.jcb.co.jp/logomark/jcb_images/diners-logomark-img-03.gif" ,size: "50x40"
+    = image_tag "https://www.jcb.co.jp/logomark/jcb_images/discover-logomark-img-06.gif" , size: "50x40"
+  
+.cardNewForm__input--expirationDate
+  .expirationDate__title
+    %p1 有効期限
+    %p1.required_text 必須
+  .expirationDate__select
+    = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'exp_month_input' ,class:"exp_month_input"
+    %P1 月
+    = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , id: 'exp_year_input', class:"exp_year_input"
+    %P1 年
+  
+.cardNewForm__input--cvc
+  .cvc__title
+    %p1 セキュリティコード
+    %p1.required_text 必須
+  .cvc__form
+    = f.text_field :cvc, placeholder: 'カード背面4桁,もしくは3桁の番号',id:"cvc_input", maxlength: "4", class:"cvc_input"
+
+=  f.hidden_field :url , value:back_url
+
+#card_token
+.cardNewForm__input--submit
+  = f.submit '追加する', id: "card_new_submit",class:"card_new_submit"
