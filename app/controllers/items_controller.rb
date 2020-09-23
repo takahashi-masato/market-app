@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @customer = Payjp::Customer.retrieve(@card.customer_id) 
     @default_card = @customer.cards.retrieve(@customer.default_card)
+    @user = User.find(current_user.id)
   end
 
   def pay

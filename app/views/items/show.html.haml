@@ -85,11 +85,12 @@
     .comment_box
       コメントボックス仮置き
     .bottom_comments
-      .select_box
-        .select_box_left
-          = link_to "前の商品", item_path(@item.previous), class: "btn_arrow_back"
-        .select_box_right
-          = link_to "次の商品", item_path(@item.next), class: "btn_arrow_back"
+      - if @item.previous.present? && @item.next.present?
+        .select_box
+          .select_box_left
+            = link_to "前の商品", item_path(@item.previous), class: "btn_arrow_back"
+          .select_box_right
+            = link_to "次の商品", item_path(@item.next), class: "btn_arrow_back"
       .more_categoly
         カテゴリーの商品をもっと見る
       
