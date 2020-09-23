@@ -75,6 +75,20 @@
         display: block;
         margin: 0 auto;
       }
+      &--bluegreen {
+        width: 200px;
+        height: 50px;
+        background: #3CCACE;
+        border: solid 1px #3CCACE;
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 50px;
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+      }
     }
   }
 }
