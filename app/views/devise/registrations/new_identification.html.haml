@@ -6,8 +6,6 @@
       .userForm__header
         %h1
           本人確認情報
-      .userForm__flashContents
-        = render "devise/shared/error_messages", resource: @identification
       .userForm__group
         .userForm__group--label
           = f.label("お名前（全角）", class: 'label')

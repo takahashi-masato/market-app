@@ -5,8 +5,6 @@
       .userForm__header
         %h1
           会員情報入力
-      .userForm__flashContents
-        = devise_error_messages!
       .userForm__group
         .userForm__group--label
           = f.label :nickname,'ニックネーム',class: 'label'
@@ -32,6 +30,6 @@
             必須
         = f.password_field :password_confirmation, autocomplete: "off", class: 'userForm__group--input'
       .userForm__btn
-        = f.submit "ログイン", class: 'userForm__btn--red'
+        = f.submit "次へ", class: 'userForm__btn--red'
 = render 'items/footer_sub'
 
