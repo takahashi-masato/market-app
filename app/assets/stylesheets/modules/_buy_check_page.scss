@@ -1,0 +1,135 @@
+.buyCheckPage{
+  max-width: 800px;
+  height: 100vh;
+  margin: 0 auto;
+  &__title{
+    width: 600px;
+    height: 60px;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom:rgb(201, 197, 197) solid 1px;
+    h2{
+      font-weight: bold;
+      font-size: 20px;
+    }  
+  }
+  &__productData{
+    width: 600px;
+    display: flex;
+    margin: 0 auto;
+    border-bottom:rgb(201, 197, 197) solid 1px;
+    padding: 20px 0;
+    position: relative;
+    &--image{
+      width: 200px;
+      img{
+        text-align: center;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+      }
+    }
+    &--detail{
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      font-size: 15px;
+      .productDataDetail__name{
+        text-align: center;
+      }
+      .productDataDetail__price{
+        font-weight: bold;
+      }
+    }
+  }
+  &__productPrice{
+    width: 600px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:rgb(201, 197, 197) solid 1px;
+    p1{
+      margin-right: 370px;
+      font-size: 20px;
+    }
+    p2{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+  &__card{
+    width: 600px;
+    height: 200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    &--title{
+      padding: 20px 0;
+      h2{
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    }
+    &--data{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom:rgb(201, 197, 197) solid 1px;
+      .cardData{
+
+      }
+      .cardChange{
+        a{
+          text-decoration: none;
+          color: rgb(96, 202, 206);
+        }
+      }
+    }
+  }
+  &__deliverAddress{
+    width: 600px;
+    height: 200px;
+    padding: 20px 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-bottom:rgb(201, 197, 197) solid 1px;
+    &--title{
+      padding-bottom: 20px;
+      h2{
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    }
+    &--data{
+      float: left;
+      .deliverAddress__data{
+        display: flex;
+      }
+    }
+    &--change{
+      float: right;
+      a{
+        text-decoration: none;
+        color: rgb(96, 202, 206);
+      }
+    }
+  }
+  &__buyBtn{
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    a{
+      padding: 20px 80px;
+      background-color: rgb(233, 41, 41);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      height: 50px;
+      font-weight: bold;
+    }
+  }
+}

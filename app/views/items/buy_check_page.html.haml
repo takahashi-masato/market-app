@@ -1,16 +1,53 @@
-%h2 商品詳細
+= render 'items/header'
 
-- @item.images.each do |item|
-  = image_tag item.image.url
-= @item.price
-.buyCheckPage__card
-  .buyCheckPage__card--title
-    %h2 支払い方法
-  .buyCheckPage__card--data
-    = render partial: "cards/card_data", locals:{card: @default_card}
-  .buyCheckPage__card--change
-    = link_to "支払い方法を変更する", cards_path
-.buyCheckPage__buyBtn
-  = link_to "購入する", pay_item_path, method: :post
--# = form_with url: pay_items_path(@item.id), local: true do |f|
--#   = f.submit "購入する"
+.buyCheckPage
+  .buyCheckPage__title
+    %h2 購入内容の確認
+  .buyCheckPage__productData
+    .buyCheckPage__productData--image
+      - @item.images.first(1).each do |item|
+        = image_tag item.image.url,size: "100x150"
+    .buyCheckPage__productData--detail
+      .productDataDetail__name
+        = @item.name
+      .productDataDetail__price
+        ="¥#{@item.price}(税込)送料込み"
+  .buyCheckPage__productPrice
+    %p1 支払い金額
+    %p2
+      = "¥#{@item.price}"
+  .buyCheckPage__card
+    .buyCheckPage__card--title
+      %h2 支払い方法      
+    .buyCheckPage__card--data
+      .cardData
+  
+        = render partial: "cards/card_data", locals:{card: @default_card}
+
+      .cardChange
+        = link_to "変更する  >", cards_path
+  .buyCheckPage__deliverAddress
+    .buyCheckPage__deliverAddress--title
+      %h2 配送先
+    .buyCheckPage__deliverAddress--data
+      .deliverAddress__postalCode
+        = "〒#{current_user.deliver_address.postal_code}"
+      .deliverAddress__data
+        .deliverAddressData__dataPrefecture
+          = current_user.deliver_address.prefecture
+        .deliverAddressData__dataCity
+          = current_user.deliver_address.city
+        .deliverAddressData__dataAddress1
+          = current_user.deliver_address.address1
+        - if current_user.deliver_address.address2.present?
+          .deliverAddressData__dataAddress1
+            = current_user.deliver_address.address2
+      .buyCheckPage__deliverAddress--name
+        = current_user.deliver_address.family_name_kanji   
+        = current_user.deliver_address.first_name_kanji      
+      .buyCheckPage__deliverAddress--telphone
+        = current_user.deliver_address.telephone
+    .buyCheckPage__deliverAddress--change   
+      = link_to "変更する  >", "#"
+  .buyCheckPage__buyBtn
+    = link_to "購入する", pay_item_path, method: :post

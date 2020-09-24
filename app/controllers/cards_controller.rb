@@ -25,7 +25,6 @@ class CardsController < ApplicationController
       card: params[:card_token],
       metadata: {user_id: current_user.id}
     )
-
     @card = Card.new(
       customer_id: customer.id,
       card_id: customer.default_card,
@@ -74,7 +73,6 @@ class CardsController < ApplicationController
     card_id = Card.find(params[:cards_table_id]) 
     customer = Payjp::Customer.retrieve(@card.customer_id) 
     customer.default_card = card_id.card_id
-   
     respond_to do |format|
       if customer.save
         if URI(request.referer).path == "/cards"
