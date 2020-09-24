@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users
   root 'items#index'
   resources :users, only: [:show]
@@ -11,6 +10,12 @@ Rails.application.routes.draw do
 
     collection do
       get 'index_more_new_page'
+    end
+  end
+  resources :users do
+    member do
+      get 'index_seller_page'
+      get 'index_buyer_page'
     end
   end
    

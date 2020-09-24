@@ -1,7 +1,8 @@
 .l-content{
-  padding-bottom: 40px;
+  margin-top: 10px;
   float: right;
   width: 800px;
+
   
   .mypage-main{
     background-color: #eee;
@@ -21,9 +22,13 @@
         text-decoration: none;
       }
     }
+    &-moreBtn:hover{
+      opacity: 0.6;
+    }
     &-list{
       display: flex;
       justify-content: center;
+      padding-left:25px;
       &__products--data{
         box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
         width: 200px;
@@ -37,6 +42,11 @@
         cursor: pointer;
         transition: all 0.3s 
       }
+    }
+    &-nillist{
+      font-size:30px ;
+      padding-top: 20px;
+      padding-bottom: 60px;
     }
   }
 }  

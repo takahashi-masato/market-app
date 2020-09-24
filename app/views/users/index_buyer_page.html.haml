@@ -1,0 +1,17 @@
+= render 'header'
+.newItemList
+  .newItemList__title
+    = link_to "購入された商品一覧", root_path,  class:"newListLink"
+  .newItemList__products
+    - @items.each do |item| 
+      = link_to item_path(item.id) ,  class: "newItemList__products--data" do
+        .dataImage
+          - item.images.each do |item_image|
+            = image_tag item_image.image.url  ,width: "100%",height:"80%"
+        .dataInfo
+          .dataInfo--name
+            = item.name
+          .dataInfo--price
+            = "#{item.price}円"
+            %p (税込)
+  

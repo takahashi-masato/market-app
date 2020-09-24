@@ -4,6 +4,14 @@ class UsersController < ApplicationController
     @items = current_user.items
   end
 
+  def index_seller_page
+    @items = current_user.items
+  end
+
+  def index_buyer_page
+    @items = current_user.items
+  end
+
   private
 
   def set_user
