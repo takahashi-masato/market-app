@@ -9,7 +9,7 @@ $(function(){
     e.preventDefault()
     var cards_table_id = $("input[value = 'true']").parents(".cardList__data").attr("data-id");
     $.ajax({
-      url:"/cards/id:"+cards_table_id+"/cards/",
+      url:"/cards/id:"+cards_table_id+"/cards",
       type: "PATCH",
       data:{cards_table_id },
       dataType: "html"
@@ -20,8 +20,5 @@ $(function(){
     .fail(function(){
       alert("失敗しました")
     })
-      
-    
-    // $("#default_card_changeForm"),submit();
   });
 });

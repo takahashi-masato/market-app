@@ -8,5 +8,5 @@
       = form_with url: cards_cards_path , local: true , id: "card_new_formfield" do |f|
         = render partial: "cards/new_card_form" , locals: { f: f ,back_url: @back_url}
     - else
-      = form_with url: cards_path , local: true , id: "card_new_formfield" do |f|
+      = form_with url: "/cards" , local: true , id: "card_new_formfield" do |f|
         = render partial:"cards/new_card_form" , locals: { f: f ,back_url: @back_url }
