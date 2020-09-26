@@ -1,27 +1,30 @@
-%h2 本人確認情報
-
-= form_for @identification do |f|
-  = render "devise/shared/error_messages", resource: @identification
-  .field
-    = f.label :名字
-    %br/
-    = f.text_field :family_name_kanji, class: 'input-default__half'
-    = f.label :名前
-    %br/
-    = f.text_field :first_name_kanji, class: 'input-default__half'
-  .field
-    = f.label :名字カナ
-    %br/
-    = f.text_field :family_name_kana, class: 'input-default__half'
-  .field
-    = f.label :名前カナ
-    %br/
-    = f.text_field :first_name_kana, class: 'input-default__half'
-  .feild
-    = f.label :誕生日
-    %br/
-    = f.date_field :birthday
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
-
+= render 'items/header_sub'
+.userMain
+  .userForm
+    = form_for @identification do |f|
+      .userForm__header
+        %h1
+          本人確認情報
+      .userForm__group
+        .userForm__group--label
+          = f.label("お名前（全角）", class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kanji ,placeholder: "例）山田", autofocus: true,class: 'userForm__group--input'
+        = f.text_field :first_name_kanji ,placeholder: "例）陸太郎", autofocus: true, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label('お名前カナ(全角)', class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kana,placeholder: "例）ヤマダ", class: 'userForm__group--input'
+        = f.text_field :first_name_kana,placeholder: "例）リクタロウ", class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label("誕生日", class: 'label')
+          %span.indispensable
+            必須
+        = f.date_field :birthday,class: 'userForm__group--input'
+      .userForm__btn
+        = f.submit "次へ", class: 'userForm__btn--red'
+= render 'items/footer_sub'

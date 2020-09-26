@@ -1,3 +1,14 @@
-%h2 登録が完了しました
-
-= link_to "トップへ戻る", root_path
+= render 'items/header_sub'
+.userMain
+  .userForm
+    .userForm__header
+      %h1
+        会員登録完了
+    .userForm__group
+      %p
+        ありがとうございます。
+      %p
+        会員登録が完了しました。
+    .userForm__btn
+      = link_to 'Furimaをはじめる', root_path, class: "userForm__btn--bluegreen"
+= render 'items/footer_sub'

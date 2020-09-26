@@ -1,46 +1,60 @@
-%h2 お届け先情報登録
-
-= form_for @deliver_address do |f|
-  = render "devise/shared/error_messages", resource: @deliver_address
-  .field
-    = f.label :お届け先の名字
-    %br/
-    = f.text_field :family_name_kanji, class: 'input-default__half'
-    = f.label :名前
-    %br/
-    = f.text_field :first_name_kanji, class: 'input-default__half'
-  .field
-    = f.label :カナ名字
-    %br/
-    = f.text_field :family_name_kana, class: 'input-default__half'
-  .field
-    = f.label :カナ名前
-    %br/
-    = f.text_field :first_name_kana, class: 'input-default__half'
-  .field
-    = f.label :郵便番号
-    %br/
-    = f.text_field :postal_code
-  .field
-    = f.label :都道府県
-    %br/
-    = f.text_field :prefecture
-  .field
-    = f.label :市町村
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :番地
-    %br/
-    = f.text_field :address1
-  .field
-    = f.label :マンションアパート名
-    %br/
-    = f.text_field :address2
-  .field
-    = f.label :電話番号
-    %br/
-    = f.phone_field :telephone
-  .action
-    = f.submit "登録完了"
-= render "devise/shared/links"
+= render 'items/header_sub'
+.userMain
+  .userForm
+    = form_for @deliver_address do |f|
+      .userForm__header
+        %h1
+          お届け先情報
+      .userForm__group
+        .userForm__group--label
+          = f.label("お名前(全角)",class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kanji ,placeholder: "例）山田", autofocus: true, class: 'userForm__group--input'
+        = f.text_field :first_name_kanji ,placeholder: "例）陸太郎", autofocus: true, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label('お名前カナ(全角)', class: 'label')
+          %span.indispensable
+            必須
+        = f.text_field :family_name_kana,placeholder: "例）ヤマダ", class: 'userForm__group--input'
+        = f.text_field :first_name_kana,placeholder: "例）リクタロウ", class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :postal_code,'郵便番号',placeholder: "例）123-4567", class: 'label', autocomplete: "off"
+          %span.indispensable
+            必須
+        = f.text_field :postal_code, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :prefecture,'都道府県', class: 'label'
+          %span.indispensable
+            必須
+        = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "ーーー"}, {class: 'userForm__group--input',required: true}
+      .userForm__group
+        .userForm__group--label
+          = f.label :city,'市町村',placeholder: "例）横浜市緑区", class: 'label'
+          %span.indispensable
+            必須
+        = f.text_field :city, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :address1,'番地',placeholder: "例）青山1-1-1", class: 'label'
+          %span.indispensable
+            必須
+        = f.text_field :address1, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :address2,'マンションアパート名',placeholder: "例）柳ビル103", class: 'label'
+          %span.arbitrary
+            任意
+        = f.text_field :address2, class: 'userForm__group--input'
+      .userForm__group
+        .userForm__group--label
+          = f.label :telephone,'電話番号',placeholder: "例）09012345678", class: 'label'
+          %span.arbitrary
+            任意
+        = f.text_field :telephone, class: 'userForm__group--input'
+      .userForm__btn
+        = f.submit "登録完了", class: 'userForm__btn--red'
+= render 'items/footer_sub'

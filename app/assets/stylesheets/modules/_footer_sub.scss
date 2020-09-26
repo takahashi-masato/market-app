@@ -1,29 +1,22 @@
-.footer_contents{
-  margin-top: 100px;
-  background-color: rgb(242, 242, 242);
-  width: 100%;
+.footerContents{
+  padding-top: 25px;
+  height: 200px;
+  background-color: #F5F5F5;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  font-size: 10px;
-  &_top_box{
+  &__top{
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    &_pri{
-      margin-right: 10%;
+    margin-bottom: 25px;
+    &--cell{
+      font-size: 12px;
+      margin: 0 10px;
     }
-    &_terms{
-      margin-right: 10%;
-      margin-left: 10%;
-    }
-    &_notice{
-      margin-left: 10%;
-    }
-
   }
+  &__logo{
+    &--cell{
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
 }
