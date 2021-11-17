@@ -50,7 +50,8 @@
             カテゴリー
           .categoly_box_label_need
             必須
-        =f.number_field :category_id,required: true
+        .categoly_box_input#category_area
+          = f.select :category_id, @category_parent_array,{prompt: "選択してください"}, {required: true, class: 'category'}
       .item_condition_box
         .item_condition_box_label
           .item_condition_box_label_name

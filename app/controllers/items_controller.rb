@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_api_key, only:[:buy_check_page, :pay]
   before_action :set_card_table_id, only:[:buy_check_page, :pay]
   before_action :set_item, only:[:destroy,:edit,:update]
-  
+  before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
   
   def index
     @items = Item.includes(:images).order("created_at DESC")
@@ -13,12 +13,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_name_id = [parent.name, parent.id]
-      @category_parent_array << @category_parent_name_id
-    end
-
   end
 
   def create
@@ -107,7 +101,7 @@ class ItemsController < ApplicationController
   end
   
   def set_item
-   @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def set_api_key
@@ -118,6 +112,13 @@ class ItemsController < ApplicationController
     @card = Card.find_by(user_id: current_user.id)
   end
 
+  def set_category_parent_array
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_name_id = [parent.name, parent.id]
+      @category_parent_array << @category_parent_name_id
+    end
+  end
 end
 # if @item.save
 #   params[:images]['image'].each do |a|
